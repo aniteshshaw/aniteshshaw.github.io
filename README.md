@@ -56,13 +56,4 @@ By default the form opens the visitor's email client (`mailto:`). To collect sub
 create a free [Formspree](https://formspree.io) form and paste its endpoint into
 `data.js → contact.formspreeEndpoint`.
 
-## Accessibility
 
-Built to **WCAG 2.1 AA**: skip-link, ARIA landmarks, keyboard-navigable nav and lightbox
-(Esc/arrow keys, focus trap), visible focus rings, AA color contrast, and full
-`prefers-reduced-motion` support (animations disable, content stays visible).
-
-## Notes
-- `Brady Lease.pdf` from the source assets is intentionally **not** published (personal document).
-- The "Generative AI" certificate image on file is from **Databricks**; swap it in `data.js` if you
-  have a different credential image to show.
