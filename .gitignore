@@ -1,0 +1,10 @@
+# Local agent/config — never publish
+.claude/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / OS cruft
+*.swp
+Thumbs.db

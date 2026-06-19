@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anitesh Kumar Shaw · QA Architect & Agentic AI Builder</title>
+  <meta name="description" content="Anitesh Kumar Shaw — QA Architect, Agentic AI Builder, DHS Trusted Tester, and author. 18+ years modernizing quality through agentic AI, automation, and accessibility." />
+  <meta name="author" content="Anitesh Kumar Shaw" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Anitesh Kumar Shaw · QA Architect & Agentic AI Builder" />
+  <meta property="og:description" content="QA Architect · Agentic AI Builder · DHS Trusted Tester · Author" />
+  <meta property="og:type" content="website" />
+
+  <!-- Set the saved theme BEFORE paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google Fonts: Inter (UI) + Playfair Display (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ====================== 1. STICKY NAV ====================== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__logo" href="#hero" aria-label="Anitesh Shaw — home"><span aria-hidden="true">AS</span></a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+        <span class="nav__bar" aria-hidden="true"></span>
+        <span class="nav__bar" aria-hidden="true"></span>
+        <span class="nav__bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav__theme">
+          <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ====================== 2. HERO ====================== -->
+    <section id="hero" class="hero" aria-labelledby="hero-name">
+      <!-- CSS-only animated SVG backdrop (hidden when prefers-reduced-motion) -->
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__inner container">
+        <div class="hero__avatar" id="heroAvatar" aria-hidden="true"></div>
+        <p class="hero__eyebrow" id="heroLocation"></p>
+        <h1 id="hero-name" class="hero__name"></h1>
+        <p class="hero__titles" id="heroTitles"></p>
+        <ul class="hero__stats" id="heroStats" aria-label="Career highlights"></ul>
+        <div class="hero__ctas" id="heroCtas"></div>
+        <ul class="hero__socials" id="heroSocials" aria-label="Social links"></ul>
+      </div>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to About"><span aria-hidden="true">▾</span></a>
+    </section>
+
+    <!-- ====================== 3. ABOUT ====================== -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="section__title" id="about-title">About</h2>
+        <div class="about__grid">
+          <div class="about__media">
+            <!-- HEADSHOT: to use your own photo, add a square image at assets/headshot.jpg
+                 (the path is set in data.js > about.headshot). Until that file exists,
+                 the monogram placeholder below is shown automatically. -->
+            <div class="about__headshot" id="aboutHeadshot" aria-hidden="true"></div>
+          </div>
+          <div class="about__body">
+            <div id="aboutBio"></div>
+            <ul class="about__badges" id="aboutBadges" aria-label="Key credentials"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. CURRENT INTERESTS & ACTIVITIES ============ -->
+    <section id="interests" class="section section--alt" aria-labelledby="interests-title">
+      <div class="container">
+        <h2 class="section__title" id="interests-title">What I'm Working On</h2>
+        <p class="section__lead">Current interests &amp; active projects.</p>
+        <div class="marquee reveal" id="interestsMarquee">
+          <div class="marquee__track" id="interestsGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 5. ACHIEVEMENTS ====================== -->
+    <section id="achievements" class="section" aria-labelledby="achievements-title">
+      <div class="container">
+        <h2 class="section__title" id="achievements-title">Achievements</h2>
+        <p class="section__lead">Signature outcomes and the impact they delivered.</p>
+        <div class="achievements__grid" id="achievementsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ====================== 6. EXPERIENCE (timeline) ====================== -->
+    <section id="experience" class="section section--alt" aria-labelledby="experience-title">
+      <div class="container">
+        <h2 class="section__title" id="experience-title">Experience</h2>
+        <div class="timeline" id="timeline">
+          <span class="timeline__spine" aria-hidden="true"><span class="timeline__spine-fill" id="spineFill"></span></span>
+        </div>
+
+        <div class="education" id="education">
+          <h3 class="subsection__title">Education</h3>
+          <div class="edu-list" id="eduList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 7. SKILLS ====================== -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 class="section__title" id="skills-title">Skills</h2>
+        <div class="skills__grid" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ====================== 8. CERTIFICATIONS (gallery) ====================== -->
+    <section id="certifications" class="section section--alt" aria-labelledby="certifications-title">
+      <div class="container">
+        <h2 class="section__title" id="certifications-title">Certifications</h2>
+        <p class="section__lead">Select a certificate to view it full size.</p>
+        <ul class="cert-grid" id="certGrid"></ul>
+      </div>
+    </section>
+
+    <!-- ====================== 9. PROJECTS ====================== -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section__title" id="projects-title">Projects &amp; Ventures</h2>
+        <div class="projects" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ====================== 10. BOOK ====================== -->
+    <section id="book" class="book" aria-labelledby="book-title">
+      <div class="container book__inner">
+        <div class="book__visual" id="bookVisual" aria-hidden="true"></div>
+        <div class="book__body">
+          <p class="book__status"><span class="book__pulse" aria-hidden="true"></span><span id="bookStatus"></span></p>
+          <h2 class="book__heading" id="book-title"></h2>
+          <p class="book__subtitle" id="bookSubtitle"></p>
+          <p class="book__blurb" id="bookBlurb"></p>
+          <h3 class="book__themes-title">Themes</h3>
+          <ul class="book__themes" id="bookThemes"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 11. WRITING & LINKS ====================== -->
+    <section id="writing" class="section section--alt" aria-labelledby="writing-title">
+      <div class="container">
+        <h2 class="section__title" id="writing-title">Writing &amp; Links</h2>
+        <p class="section__lead">Articles, posts, and talks.</p>
+        <div class="writing__tabs" id="writingTabs" role="tablist" aria-label="Filter writing by source"></div>
+        <div class="writing__grid" id="writingGrid"></div>
+        <div class="writing__more">
+          <button class="btn btn--ghost" id="writingMore" hidden>Show more</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 12. CONTACT ====================== -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <h2 class="section__title" id="contact-title"></h2>
+        <p class="section__lead" id="contactLead"></p>
+        <div class="contact__buttons" id="contactButtons"></div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required />
+            <span class="field__error" id="cf-name-err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required />
+            <span class="field__error" id="cf-email-err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="4" required></textarea>
+            <span class="field__error" id="cf-message-err" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+          <p class="contact__form-status" id="contactStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== 13. FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="footer__logo" href="#hero" aria-label="Back to top"><span aria-hidden="true">AS</span></a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer__note">
+        <span id="footerYear"></span> <span id="footerName"></span> ·
+        <span id="footerBuilt"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====================== CERTIFICATE LIGHTBOX (ARIA modal) ====================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+    <div class="lightbox__overlay" data-close="true"></div>
+    <div class="lightbox__dialog" role="document">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close (Esc)">&times;</button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous certificate">&#8249;</button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+        <figcaption class="lightbox__caption">
+          <strong id="lightboxTitle"></strong>
+          <span id="lightboxMeta"></span>
+        </figcaption>
+      </figure>
+      <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next certificate">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- Content first, then behavior. data.js defines window.PORTFOLIO. -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
