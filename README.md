@@ -1,59 +1,41 @@
 # Anitesh Kumar Shaw — Portfolio
 
-A zero-build static personal portfolio. Pure **HTML + CSS + vanilla JS** (no framework, no build
-step). All content lives in **`data.js`** so it can be updated without touching the markup.
+Fully static, pre-rendered personal portfolio. Plain **HTML + CSS + minimal vanilla JS** — no build
+step, no client-side content injection. Every word of content lives in the served HTML source, so
+search engines, LinkedIn/Twitter link previews, and recruiter scraping tools all see the real page.
 
-## Files
+## Structure
 
-| File | What it is |
+| Path | What it is |
 |------|------------|
-| `index.html` | Page structure (semantic landmarks, section shells, lightbox modal). |
-| `style.css` | Design system, themes (light/dark), animations, responsive layout. |
-| `main.js` | Renders content from `data.js` and wires up all behavior. |
-| `data.js` | **All editable content.** This is the only file you normally touch. |
-| `assets/` | Résumé, certificate images, infographic. |
-| `.nojekyll` | Tells GitHub Pages to serve files as-is (no Jekyll processing). |
+| `index.html` | Primary single-page site (hero, case studies, ventures, writing, credentials, about, contact). |
+| `personal/index.html` | Fiction writing and creative work — kept separate from the professional brand, `noindex`. |
+| `resume/index.html` | HTML mirror of the résumé PDF, for SEO. |
+| `css/style.css` | Design system (navy/amber brand), layout, responsive rules. |
+| `js/main.js` | Mobile nav toggle + footer year only — no content rendering. |
+| `assets/` | Résumé PDF, headshot, project screenshots, OG image, favicon. |
+| `robots.txt` / `sitemap.xml` | Crawler directives. |
 
 ## Run locally
 
 ```bash
-cd Portfolio
-python3 -m http.server 8000
-# open http://localhost:8000
+python3 -m http.server 8420
+# open http://localhost:8420
 ```
-
-(Any static server works — the site has no backend.)
 
 ## Deploy to GitHub Pages (root deploy)
 
-1. Push this folder to a GitHub repository (files at the repo **root**).
-2. Repo **Settings → Pages**.
-3. Under **Build and deployment**, set **Source = Deploy from a branch**.
-4. Choose branch **`main`** and folder **`/ (root)`**, then **Save**.
-5. Your site goes live at `https://<username>.github.io/<repo>/` within a minute or two.
+Repo **Settings → Pages** → Source = **Deploy from a branch** → branch `main`, folder `/ (root)`.
+`.nojekyll` is included so all files are served as-is.
 
-`.nojekyll` is already included so all files (including those starting with `_`) are served correctly.
+## Editing content
 
-## Editing content (`data.js`)
+There's no data file — copy lives directly in the HTML. Edit the relevant `<section>` in
+`index.html`, `personal/index.html`, or `resume/index.html` directly.
 
-Open `data.js` — every section is labelled with a `HOW TO ADD …` comment. Common edits:
-
-- **Add a certificate**: drop the image in `assets/certifications/`, then add one line to the
-  `certifications` array (`{ filename, title, issuer, date }`).
-- **Add an article / post / video**: add a block to the `writing` array with
-  `type: 'linkedin' | 'medium' | 'youtube'` — the icon, color, and filter tab follow automatically.
-- **Add a project / interest / achievement**: copy an existing block in the matching array.
-  For a project, add real screenshots via `screenshots: { web: 'assets/projects/your-web.jpg', app: 'assets/projects/your-app.jpg' }`
-  — `web` renders in a desktop browser frame, `app` in a phone frame. Omit either; with neither, a branded panel shows.
-- **Update the book**: edit the `book` object (`title`, `blurb`, `themes`, optional `coverImage`).
-
-### Add your headshot
-Drop a square image at **`assets/headshot.jpg`** (the path is set in `data.js → about.headshot`).
-It replaces the monogram placeholder automatically. No code change needed.
-
-### Contact form
-By default the form opens the visitor's email client (`mailto:`). To collect submissions instead,
-create a free [Formspree](https://formspree.io) form and paste its endpoint into
-`data.js → contact.formspreeEndpoint`.
-
-
+- **Certifications**: `.cred-row` in `index.html` / `resume/index.html` — one `.cred-tile` per cert
+  (issuer name + cert name, no images/logos by design).
+- **Case studies / Ventures / Writing**: each is a plain HTML block in `index.html` — copy an
+  existing `<article>` and edit.
+- **Résumé**: update both `assets/resume.pdf` (the real download) and `resume/index.html` (its HTML
+  mirror) together so they stay in sync.

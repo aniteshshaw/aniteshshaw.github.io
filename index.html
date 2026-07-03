@@ -1,260 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anitesh Kumar Shaw · QA Architect & Agentic AI Builder</title>
-  <meta name="description" content="Anitesh Kumar Shaw — QA Architect, Agentic AI Builder, DHS Trusted Tester, and author. 18+ years modernizing quality through agentic AI, automation, and accessibility." />
-  <meta name="author" content="Anitesh Kumar Shaw" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anitesh Shaw — Quality Engineering Leader | Agentic AI in QA</title>
+<meta name="description" content="Quality Engineering Leader building agentic AI for QA. 18+ years leading QE orgs, 30+ engineers, 60–70% less QA effort via agentic AI workflows." />
+<meta name="author" content="Anitesh Kumar Shaw" />
+<link rel="canonical" href="https://aniteshshaw.github.io/" />
 
-  <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Anitesh Kumar Shaw · QA Architect & Agentic AI Builder" />
-  <meta property="og:description" content="QA Architect · Agentic AI Builder · DHS Trusted Tester · Author" />
-  <meta property="og:type" content="website" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aniteshshaw.github.io/" />
+<meta property="og:title" content="Anitesh Shaw — Quality Engineering Leader | Agentic AI in QA" />
+<meta property="og:description" content="Quality Engineering Leader building agentic AI for QA. 18+ years leading QE orgs, 30+ engineers, 60–70% less QA effort via agentic AI workflows." />
+<meta property="og:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
-  <!-- Set the saved theme BEFORE paint to avoid a flash of the wrong theme -->
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
-  </script>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Anitesh Shaw — Quality Engineering Leader | Agentic AI in QA" />
+<meta name="twitter:description" content="Quality Engineering Leader building agentic AI for QA. 18+ years, 30+ engineer QE org, 60–70% effort reduction." />
+<meta name="twitter:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
 
-  <!-- Google Fonts: Inter (UI) + Playfair Display (display) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anitesh Kumar Shaw",
+  "jobTitle": "Quality Engineering Leader",
+  "url": "https://aniteshshaw.github.io/",
+  "email": "mailto:emailanitesh@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tampa",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/aniteshshaw/",
+    "https://github.com/aniteshshaw",
+    "https://medium.com/@emailanitesh"
+  ]
+}
+</script>
 </head>
 <body>
-  <!-- Skip link for keyboard users -->
-  <a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ====================== 1. STICKY NAV ====================== -->
-  <header class="site-header" id="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a class="nav__logo" href="#hero" aria-label="Anitesh Shaw — home"><span aria-hidden="true">AS</span></a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav__logo" href="#hero">AS</a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+      <span class="nav__bar" aria-hidden="true"></span>
+      <span class="nav__bar" aria-hidden="true"></span>
+      <span class="nav__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav__menu" id="navMenu">
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
-        <span class="nav__bar" aria-hidden="true"></span>
-        <span class="nav__bar" aria-hidden="true"></span>
-        <span class="nav__bar" aria-hidden="true"></span>
-      </button>
+<main id="main">
 
-      <ul class="nav__menu" id="navMenu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#book">Book</a></li>
-        <li><a href="#writing">Writing</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="nav__theme">
-          <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
-            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-
-    <!-- ====================== 2. HERO ====================== -->
-    <section id="hero" class="hero" aria-labelledby="hero-name">
-      <!-- CSS-only animated SVG backdrop (hidden when prefers-reduced-motion) -->
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="hero__inner container">
-        <div class="hero__avatar" id="heroAvatar" aria-hidden="true"></div>
-        <p class="hero__eyebrow" id="heroLocation"></p>
-        <h1 id="hero-name" class="hero__name"></h1>
-        <p class="hero__titles" id="heroTitles"></p>
-        <ul class="hero__stats" id="heroStats" aria-label="Career highlights"></ul>
-        <div class="hero__ctas" id="heroCtas"></div>
-        <ul class="hero__socials" id="heroSocials" aria-label="Social links"></ul>
-      </div>
-      <a class="hero__scroll" href="#about" aria-label="Scroll to About"><span aria-hidden="true">▾</span></a>
-    </section>
-
-    <!-- ====================== 3. ABOUT ====================== -->
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="container">
-        <h2 class="section__title" id="about-title">About</h2>
-        <div class="about__grid">
-          <div class="about__media">
-            <!-- HEADSHOT: to use your own photo, add a square image at assets/headshot.jpg
-                 (the path is set in data.js > about.headshot). Until that file exists,
-                 the monogram placeholder below is shown automatically. -->
-            <div class="about__headshot" id="aboutHeadshot" aria-hidden="true"></div>
-          </div>
-          <div class="about__body">
-            <div id="aboutBio"></div>
-            <ul class="about__badges" id="aboutBadges" aria-label="Key credentials"></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 4. CURRENT INTERESTS & ACTIVITIES ============ -->
-    <section id="interests" class="section section--alt" aria-labelledby="interests-title">
-      <div class="container">
-        <h2 class="section__title" id="interests-title">What I'm Working On</h2>
-        <p class="section__lead">Current interests &amp; active projects.</p>
-        <div class="marquee reveal" id="interestsMarquee">
-          <div class="marquee__track" id="interestsGrid"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== 5. ACHIEVEMENTS ====================== -->
-    <section id="achievements" class="section" aria-labelledby="achievements-title">
-      <div class="container">
-        <h2 class="section__title" id="achievements-title">Achievements</h2>
-        <p class="section__lead">Signature outcomes and the impact they delivered.</p>
-        <div class="achievements__grid" id="achievementsGrid"></div>
-      </div>
-    </section>
-
-    <!-- ====================== 6. EXPERIENCE (timeline) ====================== -->
-    <section id="experience" class="section section--alt" aria-labelledby="experience-title">
-      <div class="container">
-        <h2 class="section__title" id="experience-title">Experience</h2>
-        <div class="timeline" id="timeline">
-          <span class="timeline__spine" aria-hidden="true"><span class="timeline__spine-fill" id="spineFill"></span></span>
-        </div>
-
-        <div class="education" id="education">
-          <h3 class="subsection__title">Education</h3>
-          <div class="edu-list" id="eduList"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== 7. SKILLS ====================== -->
-    <section id="skills" class="section" aria-labelledby="skills-title">
-      <div class="container">
-        <h2 class="section__title" id="skills-title">Skills</h2>
-        <div class="skills__grid" id="skillsGrid"></div>
-      </div>
-    </section>
-
-    <!-- ====================== 8. CERTIFICATIONS (gallery) ====================== -->
-    <section id="certifications" class="section section--alt" aria-labelledby="certifications-title">
-      <div class="container">
-        <h2 class="section__title" id="certifications-title">Certifications</h2>
-        <p class="section__lead">Select a certificate to view it full size.</p>
-        <ul class="cert-grid" id="certGrid"></ul>
-      </div>
-    </section>
-
-    <!-- ====================== 9. PROJECTS ====================== -->
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <div class="container">
-        <h2 class="section__title" id="projects-title">Projects &amp; Ventures</h2>
-        <div class="projects" id="projectsGrid"></div>
-      </div>
-    </section>
-
-    <!-- ====================== 10. BOOK ====================== -->
-    <section id="book" class="book" aria-labelledby="book-title">
-      <div class="container book__inner">
-        <div class="book__visual" id="bookVisual" aria-hidden="true"></div>
-        <div class="book__body">
-          <p class="book__status"><span class="book__pulse" aria-hidden="true"></span><span id="bookStatus"></span></p>
-          <h2 class="book__heading" id="book-title"></h2>
-          <p class="book__subtitle" id="bookSubtitle"></p>
-          <p class="book__blurb" id="bookBlurb"></p>
-          <h3 class="book__themes-title">Themes</h3>
-          <ul class="book__themes" id="bookThemes"></ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== 11. WRITING & LINKS ====================== -->
-    <section id="writing" class="section section--alt" aria-labelledby="writing-title">
-      <div class="container">
-        <h2 class="section__title" id="writing-title">Writing &amp; Links</h2>
-        <p class="section__lead">Articles, posts, and talks.</p>
-        <div class="writing__tabs" id="writingTabs" role="tablist" aria-label="Filter writing by source"></div>
-        <div class="writing__grid" id="writingGrid"></div>
-        <div class="writing__more">
-          <button class="btn btn--ghost" id="writingMore" hidden>Show more</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== 12. CONTACT ====================== -->
-    <section id="contact" class="section contact" aria-labelledby="contact-title">
-      <div class="container contact__inner">
-        <h2 class="section__title" id="contact-title"></h2>
-        <p class="section__lead" id="contactLead"></p>
-        <div class="contact__buttons" id="contactButtons"></div>
-
-        <form class="contact__form" id="contactForm" novalidate>
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required />
-            <span class="field__error" id="cf-name-err" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required />
-            <span class="field__error" id="cf-email-err" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="4" required></textarea>
-            <span class="field__error" id="cf-message-err" aria-live="polite"></span>
-          </div>
-          <button type="submit" class="btn btn--primary">Send Message</button>
-          <p class="contact__form-status" id="contactStatus" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ====================== 13. FOOTER ====================== -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a class="footer__logo" href="#hero" aria-label="Back to top"><span aria-hidden="true">AS</span></a>
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <p class="footer__note">
-        <span id="footerYear"></span> <span id="footerName"></span> ·
-        <span id="footerBuilt"></span>
+  <!-- HERO -->
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <p class="hero__name">Anitesh Kumar Shaw · Tampa, FL</p>
+      <h1 id="hero-title">Quality Engineering Leader building <span class="accent">agentic AI</span> for QA.</h1>
+      <p class="hero__lead">
+        <strong>18+ years</strong> leading quality engineering — currently directing a
+        <strong>30+ engineer</strong> global QE organization and cutting QA analysis and design
+        effort <strong>60–70%</strong> with agentic AI workflows built on GitHub Copilot extensibility.
       </p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="assets/resume.pdf">Download Resume</a>
+        <a class="btn btn--secondary" href="mailto:emailanitesh@gmail.com">Email Me</a>
+      </div>
+      <ul class="hero__socials">
+        <li><a href="https://www.linkedin.com/in/aniteshshaw/">LinkedIn</a></li>
+        <li><a href="https://github.com/aniteshshaw">GitHub</a></li>
+        <li><a href="mailto:emailanitesh@gmail.com">emailanitesh@gmail.com</a></li>
+      </ul>
     </div>
-  </footer>
+  </section>
 
-  <!-- ====================== CERTIFICATE LIGHTBOX (ARIA modal) ====================== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
-    <div class="lightbox__overlay" data-close="true"></div>
-    <div class="lightbox__dialog" role="document">
-      <button class="lightbox__close" id="lightboxClose" aria-label="Close (Esc)">&times;</button>
-      <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous certificate">&#8249;</button>
-      <figure class="lightbox__figure">
-        <img class="lightbox__img" id="lightboxImg" src="" alt="" />
-        <figcaption class="lightbox__caption">
-          <strong id="lightboxTitle"></strong>
-          <span id="lightboxMeta"></span>
-        </figcaption>
-      </figure>
-      <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next certificate">&#8250;</button>
+  <!-- CASE STUDIES -->
+  <section id="case-studies" class="section" aria-labelledby="case-studies-title">
+    <div class="container">
+      <span class="section__label">Case Studies</span>
+      <h2 class="section__title" id="case-studies-title">Where the impact shows up</h2>
+      <p class="section__lead">Three problems I owned end to end — from what was broken to what changed because of it.</p>
+
+      <div class="case-studies">
+        <article class="case-study">
+          <span class="case-study__tag">Agentic AI for Quality Engineering</span>
+          <span class="case-study__metric">60–70% less analysis/design effort</span>
+          <h3>QIS — QA Intelligence System</h3>
+          <p>
+            Senior QA judgment — story analysis, risk modeling, test design, PR validation — lived in a
+            handful of people's heads and didn't scale across a 30+ engineer org. I built QIS, an
+            MCP-powered agentic AI workflow on GitHub Copilot extensibility: custom agents, reusable AI
+            skills, and spec kits that turn that judgment into a repeatable, reviewable process. It cut
+            QA analysis and design effort 60–70%, was adopted across Dev and QE squads, and won an
+            enterprise Technology Innovation Award and an internal AI hackathon.
+          </p>
+        </article>
+
+        <article class="case-study">
+          <span class="case-study__tag">Release &amp; Delivery Transformation</span>
+          <span class="case-study__metric">6 wks → 2 wks release cycle</span>
+          <h3>Shrinking the release cycle without shrinking quality</h3>
+          <p>
+            Releases ran on a 6-week cycle, slowed further by false-positive defects clogging the
+            readiness signal. I redesigned the automation architecture and shift-left governance model
+            and built the iADD service-readiness dashboard to surface real risk early. Release cycles
+            dropped to 2 weeks, iADD cut false defects 70–75% and saves 4–6 hours per incident, and the
+            org has sustained ~98% customer satisfaction with zero escalations.
+          </p>
+        </article>
+
+        <article class="case-study">
+          <span class="case-study__tag">AI Engineering Tools</span>
+          <span class="case-study__metric">25 min → 2–3 min setup</span>
+          <h3>AIssueBotExpress &amp; LM Quick Installer</h3>
+          <p>
+            Two manual bottlenecks slowing teams down: defect triage and environment setup. I built
+            AIssueBotExpress, an AI-powered triage agent that auto-summarizes issues and surfaces
+            probable root causes — it won an internal AI hackathon. Alongside it, LM Quick Installer
+            automated environment provisioning, cutting setup time from 25 minutes to 2–3 minutes.
+          </p>
+        </article>
+      </div>
     </div>
+  </section>
+
+  <!-- INDEPENDENT VENTURES -->
+  <section id="ventures" class="section section--alt" aria-labelledby="ventures-title">
+    <div class="container">
+      <span class="section__label">Independent Ventures</span>
+      <h2 class="section__title" id="ventures-title">Things I've designed, built, and shipped end to end</h2>
+      <p class="section__lead">Outside client and employer work — products I own, start to finish.</p>
+
+      <div class="ventures">
+        <article class="venture-card">
+          <div class="venture-card__frame">
+            <div class="venture-card__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
+          <span class="venture-card__role">Founder · Designer · Developer</span>
+          <h3>A2Quest</h3>
+          <p>Story-driven EdTech — an adaptive math quiz engine for kids, designed, built, and shipped end to end.</p>
+          <span class="venture-card__stack">Supabase · Netlify · AI APIs</span>
+          <a class="venture-card__link" href="https://a2quest.com">Visit a2quest.com →</a>
+        </article>
+
+        <article class="venture-card">
+          <div class="venture-card__frame">
+            <img src="assets/projects/bhaktiverse-web.webp" alt="Bhaktiverse website homepage" loading="lazy" width="900" height="563" />
+          </div>
+          <span class="venture-card__role">Founder · Designer · Developer</span>
+          <h3>Bhaktiverse</h3>
+          <p>A devotional content platform and community — designed and built the website and Android app end to end.</p>
+          <span class="venture-card__stack">Web · Android</span>
+          <a class="venture-card__link" href="https://www.bhaktiverse.com">Visit bhaktiverse.com →</a>
+        </article>
+
+        <article class="venture-card venture-card--muted">
+          <div class="venture-card__frame">
+            <div class="venture-card__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
+          <span class="venture-card__role">Creator · Open Source</span>
+          <h3>QIS-Skills</h3>
+          <p>Open-source agentic AI skills for quality engineering, extracted from QIS for the wider QE community.</p>
+          <span class="venture-card__stack">Not yet public</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING & TALKS -->
+  <section id="writing" class="section" aria-labelledby="writing-title">
+    <div class="container">
+      <span class="section__label">Writing &amp; Talks</span>
+      <h2 class="section__title" id="writing-title">Writing &amp; Talks</h2>
+
+      <div class="writing-list">
+        <div class="writing-item">
+          <div class="writing-item__body">
+            <h3><a href="https://medium.com/@emailanitesh/architecting-agentops-telemetry-how-i-built-observability-for-ai-coding-agents-with-lifecycle-d4ed71e38237">Architecting AgentOps Telemetry: Observability for AI Coding Agents</a></h3>
+            <p>Lifecycle hooks and privacy-first schemas for instrumenting AI coding agent runs into actionable quality signals.</p>
+          </div>
+          <span class="writing-item__meta">Medium · 2025</span>
+        </div>
+      </div>
+
+      <h3 class="section__title" style="font-size:1.1rem; margin-top:2.5rem;">Internal Talks</h3>
+      <ul class="talks-list">
+        <li><strong>All Hands</strong> — Agentic AI in Quality Engineering</li>
+        <li><strong>TechTrek</strong> — AI-driven QA enablement</li>
+        <li><strong>Lunch &amp; Learn</strong> — Building with GitHub Copilot extensibility</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials" class="section section--alt" aria-labelledby="credentials-title">
+    <div class="container">
+      <span class="section__label">Credentials</span>
+      <h2 class="section__title" id="credentials-title">Credentials</h2>
+
+      <div class="cred-row">
+        <div class="cred-tile"><span class="cred-tile__issuer">Microsoft</span><span class="cred-tile__name">Azure AI Fundamentals (AI-900)</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">Microsoft</span><span class="cred-tile__name">Azure Fundamentals (AZ-900)</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">Databricks</span><span class="cred-tile__name">Generative AI Fundamentals</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">Scrum.org</span><span class="cred-tile__name">Professional Scrum Master I</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">Scrum.org</span><span class="cred-tile__name">Professional Scrum Master II</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">U.S. Dept. of Homeland Security</span><span class="cred-tile__name">DHS Trusted Tester</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">ISTQB</span><span class="cred-tile__name">Foundation Level</span></div>
+        <div class="cred-tile"><span class="cred-tile__issuer">Lean Six Sigma</span><span class="cred-tile__name">Yellow Belt</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <span class="section__label">About</span>
+      <h2 class="section__title" id="about-title">About</h2>
+      <div class="about">
+        <img class="about__headshot" src="assets/headshot.webp" alt="Portrait of Anitesh Kumar Shaw" width="140" height="140" />
+        <div class="about__body">
+          <p>I've spent 18+ years building quality engineering organizations — most recently leading a 30+ member global QE team as QA Technical Architect at a leading North American logistics enterprise, with prior engagements at KPMG (US &amp; Global) and Citibank.</p>
+          <p>My focus is applying agentic AI — custom agents, reusable skills, spec-driven workflows — to make quality analysis and test design faster and more consistent, not just automated.</p>
+          <p>I'm also a DHS Trusted Tester, which keeps accessibility close to how I think about quality.</p>
+          <p>Outside of work, I write fiction — more on my <a href="personal/">personal page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section--alt contact" aria-labelledby="contact-title">
+    <div class="container">
+      <span class="section__label">Contact</span>
+      <h2 class="section__title" id="contact-title">Let's talk quality engineering and agentic AI.</h2>
+      <p class="section__lead">Tampa, FL — open to Head of QE / QA Architect / AI-enablement leadership roles.</p>
+      <div class="contact__buttons">
+        <a class="btn btn--primary" href="assets/resume.pdf">Download Resume</a>
+        <a class="btn btn--secondary" href="mailto:emailanitesh@gmail.com">emailanitesh@gmail.com</a>
+        <a class="btn btn--secondary" href="https://www.linkedin.com/in/aniteshshaw/">LinkedIn</a>
+        <a class="btn btn--secondary" href="https://github.com/aniteshshaw">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#case-studies">Case Studies</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#about">About</a>
+      <a href="personal/">Personal</a>
+      <a href="resume/">Resume</a>
+    </nav>
+    <p class="footer__note"><span id="footerYear"></span> Anitesh Kumar Shaw · Tampa, FL</p>
   </div>
+</footer>
 
-  <!-- Content first, then behavior. data.js defines window.PORTFOLIO. -->
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
