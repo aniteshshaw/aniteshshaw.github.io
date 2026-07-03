@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QIS-Skills — Agentic AI Skills for Quality Engineering | Anitesh Shaw</title>
+<meta name="description" content="19 open-source GitHub Copilot Agent Skills for quality engineering — story readiness, test design, Playwright automation, PR quality gates, defect triage, RCA, and accessibility. By Anitesh Shaw." />
+<meta name="author" content="Anitesh Kumar Shaw" />
+<link rel="canonical" href="https://aniteshshaw.github.io/qis-skills/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aniteshshaw.github.io/qis-skills/" />
+<meta property="og:title" content="QIS-Skills — Agentic AI Skills for Quality Engineering" />
+<meta property="og:description" content="19 open-source GitHub Copilot Agent Skills that bring senior QE judgment into VS Code Chat. Distilled from QIS, the enterprise workflow that cut QA effort 60–70%." />
+<meta property="og:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="QIS-Skills — Agentic AI Skills for Quality Engineering" />
+<meta name="twitter:description" content="19 open-source GitHub Copilot Agent Skills that bring senior QE judgment into VS Code Chat." />
+<meta name="twitter:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "QIS-Skills",
+  "description": "19 open-source GitHub Copilot Agent Skills for quality engineering",
+  "codeRepository": "https://github.com/aniteshshaw/QIS-Skills",
+  "programmingLanguage": "Markdown",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Person",
+    "name": "Anitesh Kumar Shaw",
+    "url": "https://aniteshshaw.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav__logo" href="../">AS</a>
+    <ul class="nav__menu" style="display:flex;">
+      <li><a href="#workflow">Workflow</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="https://github.com/aniteshshaw/QIS-Skills">GitHub</a></li>
+      <li><a href="../">← Portfolio</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="qis-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <p class="hero__name">Open source · MIT · By Anitesh Shaw</p>
+      <h1 id="qis-title">QIS-Skills: <span class="accent">senior QE judgment</span>, installed into your editor.</h1>
+      <p class="hero__lead">
+        19 GitHub Copilot Agent Skills that bring story analysis, test design, automation
+        architecture, accessibility, triage, and RCA directly into VS Code Chat — the open-source
+        distillation of <strong>QIS (QA Intelligence System)</strong>, the enterprise agentic AI
+        workflow that cut QA analysis and design effort <strong>60–70%</strong>.
+      </p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="https://github.com/aniteshshaw/QIS-Skills">View on GitHub</a>
+        <a class="btn btn--secondary" href="#skills">Explore the 19 skills</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section id="workflow" class="section" aria-labelledby="workflow-title">
+    <div class="container">
+      <span class="section__label">How it fits together</span>
+      <h2 class="section__title" id="workflow-title">One ecosystem, an end-to-end quality pipeline</h2>
+      <p class="section__lead">Six core skills chain from backlog to bug report — each one's output is the next one's input. Specialist and utility skills plug in where needed.</p>
+      <div class="pipeline" role="img" aria-label="Pipeline: story readiness, then test case author, then E2E automation architect, then PR quality gate, then test evidence linker, then defect triage">Story Readiness → Test Case Author → E2E Automation Architect
+       → PR Quality Gate → Test Evidence Linker → Defect Triage</div>
+      <figure class="skill__figure" style="margin-top:2rem;">
+        <img src="../assets/qis/ecosystem.webp" alt="QIS-Skills ecosystem diagram showing how the 19 skills connect across the quality engineering lifecycle" loading="lazy" width="1400" height="787" />
+        <figcaption>The QIS-Skills ecosystem — how the skills connect across the QE lifecycle.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section--alt" aria-labelledby="skills-title">
+    <div class="container">
+      <span class="section__label">The Skills</span>
+      <h2 class="section__title" id="skills-title">All 19 skills, documented</h2>
+      <p class="section__lead">Each skill is a self-contained folder with a <code>SKILL.md</code> manifest. Expand any skill for what it does, what it needs, and what it produces.</p>
+
+      <!-- CORE WORKFLOW -->
+      <div class="skill-group">
+        <h3>Core QE workflow — the six-skill pipeline</h3>
+        <div class="skill-list">
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-story-readiness</span><span class="skill__tagline">Evaluates backlog items before sprint planning</span></summary>
+            <div class="skill__body">
+              <p>Acts as a senior BA/QA lead: fetches the work item, auto-traverses the parent epic and sibling stories, checks regression memory for existing tests, scans the codebase for impacted validation rules, and only asks questions it genuinely can't answer itself. Ensures every story is testable, implementable, and estimable before it enters a sprint.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Work item ID (story, bug, spike, or enhancement)</li><li>Access to the tracker (e.g., Azure DevOps) and codebase</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Structured readiness summary with impact rating</li><li>Dependency map and requirement-gap questions</li><li>AC validation and story-point guidance with confidence level</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-testcase-author</span><span class="skill__tagline">Manual test cases and traceability from requirements</span></summary>
+            <div class="skill__body">
+              <p>Turns a refined story into a complete manual test package. Checks regression memory and unit-test coverage first so it never duplicates existing coverage, analyzes linked pull requests, consults naming standards, and generates positive, negative, and edge-case scenarios ready for review and upload.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Work item ID with acceptance criteria</li><li>Optional: linked PRs, existing regression suites</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Comprehensive manual test cases (positive/negative/edge)</li><li>Test workbooks and coverage documentation</li><li>Traceability matrix mapping ACs to test cases</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-e2e-automation-architect</span><span class="skill__tagline">Requirements → executable Playwright suites</span></summary>
+            <div class="skill__body">
+              <p>Transforms requirements into production-grade Playwright automation. Mandatory discipline built in: verifies unit-test coverage, queries the tracker for existing tests, discovers real locators from the codebase (never invents selectors), and inventories existing page objects before writing new ones.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Requirements or story with ACs</li><li>Application codebase (for locator discovery)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Playwright test suites with Page Object Models</li><li>Fixtures, test data setup, and a test plan</li><li>CI/CD pipeline configuration</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-pr-quality-gate</span><span class="skill__tagline">No-fluff reviewer for test-automation PRs</span></summary>
+            <div class="skill__body">
+              <p>Reviews UI/API test-automation pull requests against six gates: assertion honesty, determinism/flake risk, test-data realism, traceability, AC-to-assertion coverage, and scope/secret hygiene. Asks for human approval before posting anything to the PR.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>A test-automation pull request</li><li>Optional: linked story for coverage checking</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Gate-by-gate verdict (blocking vs. advisory)</li><li>Inline review comments (posted only after approval)</li><li>Actionable fix list, no style nitpicks</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-test-evidence-linker</span><span class="skill__tagline">Closes the loop between automation and the tracker</span></summary>
+            <div class="skill__body">
+              <p>Runs Playwright tests, captures videos and screenshots, uploads artifacts to the tracker, sets Associated Automation fields on manual test cases, posts result comments to the user story, and files structured bugs automatically when tests fail — full evidence chain, no manual bookkeeping.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Playwright test files or a test run</li><li>Manual test case and story IDs to link</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Artifacts (video/screenshots) attached to work items</li><li>Automation linked to manual TCs; result comments on stories</li><li>Auto-filed bugs with evidence on failure</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-defect-triage</span><span class="skill__tagline">Structured, classified, evidence-backed defect filing</span></summary>
+            <div class="skill__body">
+              <p>Classifies every issue through a decision tree (in-sprint bug vs. post-sprint defect vs. production issue), gathers evidence, writes reproducible steps, assigns severity, and files a complete work item with traceability links — a 10-step runbook a junior engineer could follow.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Failure description, logs, or failing test evidence</li><li>Tracker project/area context</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Correctly classified work item (bug/defect/prod issue)</li><li>Repro steps, severity triage, environment details</li><li>Evidence attachments and traceability links</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- SPECIALIST -->
+      <div class="skill-group">
+        <h3>Specialist skills</h3>
+        <div class="skill-list">
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-accessibility-guardian</span><span class="skill__tagline">WCAG / Section 508 audits and conformance reports</span></summary>
+            <div class="skill__body">
+              <p>Runs automated accessibility audits mapped to the DHS Trusted Tester v5.1 process — the same discipline behind a certified Trusted Tester's manual review. Performs static analysis on HTML/JSX/TSX and produces VPAT-style conformance reporting.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>A URL, page, or HTML/JSX/TSX source</li><li>Target conformance level (A/AA/AAA, Section 508)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>WCAG/508 audit report mapped to Trusted Tester tests</li><li>VPAT-style conformance report</li><li>Prioritized, code-level fix recommendations</li></ul></div>
+              </div>
+              <figure class="skill__figure">
+                <img src="../assets/qis/accessibility-test.webp" alt="Accessibility Guardian output showing a WCAG audit report" loading="lazy" width="1400" height="800" />
+                <figcaption>qis-accessibility-guardian — audit output.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-api-acceptance-architect</span><span class="skill__tagline">.NET MSTest API acceptance suites with standard patterns</span></summary>
+            <div class="skill__body">
+              <p>Creates or refactors .NET API acceptance-test suites with a standardized scenario contract per endpoint: success, negative, and security cases. Includes mandatory pre-flight checks, a dev-coverage gap callout, and test-data feasibility handling.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>API endpoints or OpenAPI spec</li><li>.NET solution (new or existing test project)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>MSTest acceptance suite (success/negative/security per endpoint)</li><li>Standard project structure with async client</li><li>Coverage gap report vs. dev-owned tests</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-api-test-modernizer</span><span class="skill__tagline">Legacy .NET API test projects → modern architecture</span></summary>
+            <div class="skill__body">
+              <p>Migrates legacy .NET API acceptance-test projects to a modern architecture — latest target framework, async client, cleaner dependencies — through a gated process: intake conversation, feasibility gate, runtime readiness gate, then stepwise upgrade with parity verification.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Legacy .NET API test project/solution</li><li>Access to run the suite (for before/after parity)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Modernized project on the latest target framework</li><li>Async HTTP client and cleaned dependency graph</li><li>Parity report proving equivalent coverage</li></ul></div>
+              </div>
+              <figure class="skill__figure">
+                <img src="../assets/qis/api-modernization.webp" alt="API test modernization flow diagram" loading="lazy" width="1400" height="800" />
+                <figcaption>qis-api-test-modernizer — migration flow.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-load-test-architect</span><span class="skill__tagline">Load/stress/soak scripts from OpenAPI specs</span></summary>
+            <div class="skill__body">
+              <p>Builds API load-test scripts (Blazemeter Taurus / BZT) from an OpenAPI spec automatically, from manual endpoint collection, or hybrid. Handles environment/load configuration, test-data strategy, parameterization, and response chaining, with pre-execution validation before anything runs.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>OpenAPI/Swagger spec, or manually collected endpoints</li><li>Load profile (users, ramp, duration) and environment</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Taurus/BZT scripts with parameterization and chaining</li><li>Load/stress/soak profiles ready to execute</li><li>Pre-execution validation checklist</li></ul></div>
+              </div>
+              <figure class="skill__figure">
+                <img src="../assets/qis/performance.webp" alt="Load test architecture diagram" loading="lazy" width="1400" height="800" />
+                <figcaption>qis-load-test-architect — performance pipeline.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-rum-test-strategist</span><span class="skill__tagline">Production RUM data → data-driven test strategy</span></summary>
+            <div class="skill__body">
+              <p>Turns real-user-monitoring behavior into test strategy: discovers what users actually do in production, formulates coverage priorities from real traffic, defines KPI gates on Web Vitals and mobile metrics, and generates the test cases to enforce them.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>RUM data source (e.g., Datadog RUM)</li><li>Target platform (web / mobile)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Data-driven test strategy from real user flows</li><li>KPI gates on Core Web Vitals / mobile KPIs</li><li>Generated test cases and a coverage report</li></ul></div>
+              </div>
+              <figure class="skill__figure">
+                <img src="../assets/qis/rum.webp" alt="RUM-driven test strategy diagram" loading="lazy" width="1400" height="800" />
+                <figcaption>qis-rum-test-strategist — RUM to test strategy.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-incident-rca-bridge</span><span class="skill__tagline">Incident → root-cause analysis → tracker work item</span></summary>
+            <div class="skill__body">
+              <p>Fetches an incident, analyzes it, and performs structured root-cause analysis using 5-Whys, Ishikawa (fishbone), and timeline reconstruction — then creates a detailed tracker work item with full traceability back to the incident.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Incident ID or ticket reference</li><li>Access to incident tooling and the tracker</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>RCA document (5-Whys, Ishikawa, timeline)</li><li>Detailed tracker work item with the analysis</li><li>Traceability links incident ↔ work item</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-legacy-parity-analyst</span><span class="skill__tagline">Legacy-vs-modern gap analysis for re-platforming</span></summary>
+            <div class="skill__body">
+              <p>For modernization efforts: auto-discovers behavior in both legacy and modern codebases, performs deep story analysis, produces a legacy-vs-modern gap analysis with risk and impact assessment, and hands QA a test strategy focused on the riskiest parity gaps.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Legacy and modern codebases (or story context)</li><li>The re-platforming story/work item</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Parity/gap analysis with risk ratings</li><li>QA test strategy for the modernized system</li><li>Traceability mapping and recommendations</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-mobile-automation</span><span class="skill__tagline">Shared mobile automation patterns (Robot + POM)</span></summary>
+            <div class="skill__body">
+              <p>The shared foundation for the platform-specific mobile skills: Robot Pattern + Page Object Model conventions, locator discovery discipline (never assume — always discover from the codebase), and framework file inventory so generated tests match your existing structure.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Mobile app repository (Android or iOS)</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Locators discovered from real code</li><li>Page objects and robots matching your conventions</li><li>Test classes wired into the existing framework</li></ul></div>
+              </div>
+              <figure class="skill__figure">
+                <img src="../assets/qis/mobile.webp" alt="Mobile automation architecture diagram" loading="lazy" width="1400" height="800" />
+                <figcaption>Mobile automation skills — shared architecture.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-android-automation</span><span class="skill__tagline">Android UI tests in Kotlin (Compose / AndroidJUnit4)</span></summary>
+            <div class="skill__body">
+              <p>Generates Android UI tests using Jetpack Compose UI Test and AndroidJUnit4 with Robot Pattern + POM. Discovers TestTags from the actual codebase, inventories existing framework files first, and validates output against naming standards before presenting.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>Android project (Kotlin, Jetpack Compose)</li><li>Scenario or story to automate</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Kotlin UI test classes (Compose UI Test / AndroidJUnit4)</li><li>Robots and page objects from discovered TestTags</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-ios-automation</span><span class="skill__tagline">iOS UI tests in Swift (XCUITest / XCTest)</span></summary>
+            <div class="skill__body">
+              <p>Generates iOS UI tests in Swift using XCUITest/XCTest with Robot Pattern + POM. Discovers accessibility identifiers from the real codebase and reviews generated tests against the shared mobile standards before presenting them.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>iOS project (Swift)</li><li>Scenario or story to automate</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Swift XCUITest test classes</li><li>Robots and page objects from discovered identifiers</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- UTILITIES -->
+      <div class="skill-group">
+        <h3>Engineering utilities</h3>
+        <div class="skill-list">
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-plan-interrogator</span><span class="skill__tagline">Relentless plan interrogation until shared understanding</span></summary>
+            <div class="skill__body">
+              <p>Interviews you about a plan or design the way a sharp architect would — resolving each branch of the decision tree, surfacing unstated assumptions, and refusing to stop at vague answers until genuine shared understanding is reached.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>A plan, design doc, or even a rough idea</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Resolved decision tree with rationale</li><li>Surfaced assumptions and open risks</li><li>A plan you can actually defend</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-diagram-forge</span><span class="skill__tagline">Styled, animated Mermaid diagrams of any kind</span></summary>
+            <div class="skill__body">
+              <p>Creates, styles, and animates Mermaid diagrams — flowchart, sequence, state, class, ER, gitGraph, timeline, mindmap, C4, and more — with consistent styling standards, as standalone <code>.mmd</code> files or embedded Markdown blocks.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>A description of the process, system, or flow</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Publication-quality Mermaid diagrams</li><li><code>.mmd</code> files or Markdown-embedded blocks</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="skill">
+            <summary><span class="skill__name">qis-ui-craftsman</span><span class="skill__tagline">Production-grade, accessible frontend interfaces</span></summary>
+            <div class="skill__body">
+              <p>Builds distinctive, enterprise-grade frontend interfaces — components, pages, dashboards, React apps — with WCAG 2.1/2.2 and Section 508 accessibility built in from the first line, not bolted on after.</p>
+              <div class="skill__io">
+                <div><h4>Inputs</h4><ul><li>UI requirement, design intent, or mockup</li></ul></div>
+                <div><h4>Outputs</h4><ul><li>Accessible, production-ready components and pages</li><li>Enterprise design patterns applied consistently</li></ul></div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install" class="section" aria-labelledby="install-title">
+    <div class="container">
+      <span class="section__label">Get Started</span>
+      <h2 class="section__title" id="install-title">Install in under a minute</h2>
+      <p class="section__lead">Skills live in your Copilot skills directory. Clone, copy, restart VS Code — done.</p>
+      <div class="install-block" role="img" aria-label="Installation commands: git clone the QIS-Skills repository, then copy the qis skill folders into your Copilot skills directory">git clone https://github.com/aniteshshaw/QIS-Skills.git
+cp -R QIS-Skills/qis-* ~/.copilot/skills/
+# restart VS Code — Copilot picks the skills up automatically</div>
+      <p style="margin-top:1.5rem;">
+        Windows instructions, verification steps, and customization guidance are in the
+        <a href="https://github.com/aniteshshaw/QIS-Skills#installation">repository README</a>.
+      </p>
+      <div class="hero__ctas" style="margin-top:1.5rem;">
+        <a class="btn btn--primary" href="https://github.com/aniteshshaw/QIS-Skills">View on GitHub</a>
+        <a class="btn btn--secondary" href="../#contact">Talk to me about agentic QA</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="../">Portfolio</a>
+      <a href="https://github.com/aniteshshaw/QIS-Skills">GitHub</a>
+      <a href="../resume/">Resume</a>
+    </nav>
+    <p class="footer__note"><span id="footerYear"></span> Anitesh Kumar Shaw · Tampa, FL · MIT licensed</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
