@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>QIS-Skills Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0B1426; --panel: #121F38; --panel-2: #172A4B; --line: rgba(238,242,248,.12); --line-2: rgba(238,242,248,.22);
+    --text: #EEF2F8; --dim: #B7C2D6; --muted: #8E9CB5; --amber: #E8B25A; --teal: #4FD1A5; --sky: #8DBEFF; --rose: #F49595;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, sans-serif; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(141,190,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(141,190,255,.06) 1px, transparent 1px); background-size: 28px 28px; }
+  .wrap { position: relative; max-width: 1180px; margin: 0 auto; padding: 28px 24px 120px; }
+  header { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 22px; }
+  h1 { font: 700 30px/1.1 Outfit, sans-serif; margin: 0; letter-spacing: -.01em; }
+  h1 span { color: var(--amber); }
+  .sub { color: var(--dim); margin: 6px 0 0; }
+  .hand { font-family: Caveat, cursive; color: var(--amber); font-size: 20px; }
+  .lock { display: inline-flex; gap: 8px; align-items: center; font: 500 12px 'JetBrains Mono', monospace; color: var(--teal); border: 1px solid rgba(79,209,165,.35); padding: 6px 10px; border-radius: 999px; background: rgba(79,209,165,.07); }
+  .bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 14px; margin: 0 -14px 18px; border-radius: 14px; background: rgba(11,20,38,.92); backdrop-filter: blur(8px); border: 1px solid var(--line); }
+  .kpi { display: inline-flex; gap: 8px; align-items: baseline; padding: 6px 12px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); font-size: 13px; color: var(--dim); }
+  .kpi b { font: 700 20px Outfit, sans-serif; color: var(--text); }
+  .kpi.pub b { color: var(--teal); } .kpi.tease b { color: var(--amber); } .kpi.priv b { color: var(--rose); } .kpi.sched b { color: var(--sky); }
+  .spacer { flex: 1; }
+  label.asof { font-size: 13px; color: var(--dim); display: inline-flex; gap: 8px; align-items: center; }
+  input[type=date], input[type=number] { background: var(--panel); color: var(--text); border: 1px solid var(--line-2); border-radius: 8px; padding: 6px 8px; font: 13px 'JetBrains Mono', monospace; color-scheme: dark; }
+  input[type=number] { width: 58px; }
+  button { font: 600 14px Inter, sans-serif; border-radius: 10px; padding: 9px 16px; cursor: pointer; border: 1px solid var(--line-2); background: transparent; color: var(--text); }
+  button.primary { background: var(--amber); color: #0D1629; border-color: var(--amber); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 26px; }
+  .legend div { padding: 12px 14px; border-radius: 12px; border: 1px dashed var(--line-2); background: rgba(18,31,56,.6); font-size: 13px; color: var(--dim); }
+  .legend strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 2px; }
+  h2 { font: 600 13px 'JetBrains Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin: 28px 0 10px; }
+  .row { display: grid; grid-template-columns: 64px minmax(180px, 1.2fr) auto auto minmax(150px, .7fr) minmax(150px, .8fr); gap: 14px; align-items: center; padding: 12px 14px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); margin-bottom: 8px; }
+  .row.dirty { border-color: rgba(232,178,90,.55); }
+  .name b { display: block; font-weight: 600; }
+  .name code { font: 12px 'JetBrains Mono', monospace; color: var(--muted); }
+  .seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; min-width: max-content; }
+  .seg label { position: relative; }
+  .seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .seg span { display: block; padding: 6px 10px; font-size: 12.5px; color: var(--dim); border-left: 1px solid var(--line); white-space: nowrap; }
+  .seg label:first-child span { border-left: none; }
+  .seg input:focus-visible + span { outline: 2px solid var(--amber); outline-offset: -2px; }
+  .seg input:checked + span.s-live { background: rgba(79,209,165,.18); color: var(--teal); }
+  .seg input:checked + span.s-preview { background: rgba(141,190,255,.16); color: var(--sky); }
+  .seg input:checked + span.s-coming-soon { background: rgba(232,178,90,.16); color: var(--amber); }
+  .seg input:checked + span.s-hidden { background: rgba(244,149,149,.14); color: var(--rose); }
+  .star { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; color: var(--dim); cursor: pointer; }
+  .star input { accent-color: var(--amber); width: 16px; height: 16px; }
+  .date { display: flex; gap: 6px; align-items: center; }
+  .date button { padding: 4px 8px; font-size: 12px; }
+  .outcome { font-size: 12.5px; color: var(--dim); }
+  .outcome .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font: 600 11px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .06em; margin-right: 6px; }
+  .pill.pub { background: rgba(79,209,165,.14); color: var(--teal); } .pill.tease { background: rgba(232,178,90,.14); color: var(--amber); } .pill.priv { background: rgba(244,149,149,.14); color: var(--rose); }
+  .outcome a { color: var(--amber); }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: min(760px, 92vw); padding: 14px 18px; border-radius: 14px; background: #0F1B33; border: 1px solid var(--line-2); box-shadow: 0 20px 60px rgba(0,0,0,.5); font-size: 14px; display: none; }
+  .toast.show { display: block; }
+  .toast pre { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; background: rgba(0,0,0,.35); font: 12.5px 'JetBrains Mono', monospace; white-space: pre-wrap; color: var(--dim); }
+  .toast.err { border-color: rgba(244,149,149,.5); }
+  @media (max-width: 980px) { .row { grid-template-columns: 1fr 1fr; } .row .name { grid-column: 1 / -1; order: -1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>QIS-Skills <span>Studio</span></h1>
+      <p class="sub">Decide what the public site shows, and when. <span class="hand">your private control room</span></p>
+    </div>
+    <span class="lock">● local only · studio/catalog.json is never committed</span>
+  </header>
+
+  <div class="bar" role="region" aria-label="Summary and actions">
+    <span class="kpi pub"><b id="kPub">–</b> public</span>
+    <span class="kpi tease"><b id="kTease">–</b> teased</span>
+    <span class="kpi priv"><b id="kPriv">–</b> private</span>
+    <span class="kpi sched"><b id="kSched">–</b> scheduled</span>
+    <label class="asof">Show the site as of <input type="date" id="asOf" /></label>
+    <span class="spacer"></span>
+    <button id="revert" disabled>Discard changes</button>
+    <button id="save" disabled>Save</button>
+    <button id="publish" class="primary">Save &amp; publish</button>
+  </div>
+
+  <div class="legend">
+    <div><strong>Live</strong>Full skill page and a catalog card.</div>
+    <div><strong>Preview</strong>Full page with a "Preview" badge, for early-access skills.</div>
+    <div><strong>Coming soon</strong>Teaser only: name, tagline, and date in "Coming next". No details are published.</div>
+    <div><strong>Hidden</strong>Nothing about it leaves this machine.</div>
+    <div><strong>Goes live on</strong>From this date onward, the next publish makes the skill Live automatically.</div>
+  </div>
+
+  <div id="groups"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+  var STATUSES = [['live', 'Live'], ['preview', 'Preview'], ['coming-soon', 'Coming soon'], ['hidden', 'Hidden']];
+  var CATS = [['core', 'Core pipeline'], ['specialist', 'Specialists'], ['utility', 'Utilities']];
+  var catalog = null, saved = '';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; };
+  function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+  // Same rule as tools/publish-skills.mjs: a scheduled date promotes to live.
+  function resolve(s, date) { return (s.publishAfter && s.publishAfter <= date && s.status !== 'live') ? 'live' : s.status; }
+
+  function outcome(s, date) {
+    var r = resolve(s, date);
+    var pill = r === 'live' || r === 'preview' ? '<span class="pill pub">public</span>' : r === 'coming-soon' ? '<span class="pill tease">teaser</span>' : '<span class="pill priv">private</span>';
+    var note = '';
+    if (s.publishAfter && s.publishAfter > date) note = 'goes live ' + esc(s.publishAfter);
+    else if (r === 'live' || r === 'preview') note = '<a href="http://localhost:8420/qis-skills/' + esc(s.id) + '/" target="_blank" rel="noopener">view page ↗</a>';
+    return pill + note;
+  }
+
+  function render() {
+    var date = $('asOf').value || today();
+    // Re-rendering replaces the rows; remember what had focus so keyboard users keep their place.
+    var ae = document.activeElement, keep = null;
+    if (ae && ae.closest && ae.closest('.row')) {
+      keep = { i: ae.closest('.row').getAttribute('data-i'), f: ae.getAttribute('data-f'), v: ae.type === 'radio' ? ae.value : null };
+    }
+    var html = '';
+    CATS.forEach(function (c) {
+      var list = catalog.skills.filter(function (s) { return s.category === c[0]; }).sort(function (a, b) { return a.order - b.order; });
+      if (!list.length) return;
+      html += '<h2>' + c[1] + '</h2>';
+      list.forEach(function (s) {
+        var i = catalog.skills.indexOf(s);
+        html += '<div class="row" data-i="' + i + '">' +
+          '<input type="number" min="1" value="' + s.order + '" data-f="order" aria-label="Order of ' + esc(s.name) + '" />' +
+          '<div class="name"><b>' + esc(s.name) + '</b><code>' + esc(s.id) + '</code></div>' +
+          '<div class="seg" role="radiogroup" aria-label="Status of ' + esc(s.name) + '">' + STATUSES.map(function (st) {
+            return '<label><input type="radio" name="st-' + i + '" value="' + st[0] + '" data-f="status"' + (s.status === st[0] ? ' checked' : '') + ' /><span class="s-' + st[0] + '">' + st[1] + '</span></label>';
+          }).join('') + '</div>' +
+          '<label class="star"><input type="checkbox" data-f="featured"' + (s.featured ? ' checked' : '') + ' /> Flagship</label>' +
+          '<div class="date"><input type="date" value="' + (s.publishAfter || '') + '" data-f="publishAfter" aria-label="Goes live on, for ' + esc(s.name) + '" />' +
+          (s.publishAfter ? '<button type="button" data-clear aria-label="Clear date">×</button>' : '') + '</div>' +
+          '<div class="outcome">' + outcome(s, date) + '</div>' +
+        '</div>';
+      });
+    });
+    $('groups').innerHTML = html;
+    if (keep && keep.f) {
+      var sel = '.row[data-i="' + keep.i + '"] [data-f="' + keep.f + '"]' + (keep.v ? '[value="' + keep.v + '"]' : '');
+      var el = document.querySelector(sel);
+      if (el) el.focus();
+    }
+    summarize(date);
+    var dirty = JSON.stringify(catalog) !== saved;
+    $('save').disabled = !dirty; $('revert').disabled = !dirty;
+    var base = JSON.parse(saved);
+    document.querySelectorAll('.row').forEach(function (row) {
+      var i = +row.getAttribute('data-i');
+      row.classList.toggle('dirty', JSON.stringify(catalog.skills[i]) !== JSON.stringify(base.skills[i]));
+    });
+  }
+
+  function summarize(date) {
+    var r = catalog.skills.map(function (s) { return resolve(s, date); });
+    $('kPub').textContent = r.filter(function (x) { return x === 'live' || x === 'preview'; }).length;
+    $('kTease').textContent = r.filter(function (x) { return x === 'coming-soon'; }).length;
+    $('kPriv').textContent = r.filter(function (x) { return x === 'hidden'; }).length;
+    $('kSched').textContent = catalog.skills.filter(function (s) { return s.publishAfter && s.publishAfter > date; }).length;
+  }
+
+  $('groups').addEventListener('change', function (e) {
+    var row = e.target.closest('.row'); if (!row) return;
+    var s = catalog.skills[+row.getAttribute('data-i')];
+    var f = e.target.getAttribute('data-f');
+    if (f === 'status') s.status = e.target.value;
+    if (f === 'featured') s.featured = e.target.checked;
+    if (f === 'publishAfter') s.publishAfter = e.target.value || null;
+    if (f === 'order') s.order = parseInt(e.target.value, 10) || s.order;
+    render();
+  });
+  $('groups').addEventListener('click', function (e) {
+    if (!e.target.hasAttribute('data-clear')) return;
+    catalog.skills[+e.target.closest('.row').getAttribute('data-i')].publishAfter = null;
+    render();
+  });
+  $('asOf').addEventListener('change', render);
+
+  function toast(msg, detail, isErr) {
+    var t = $('toast');
+    t.className = 'toast show' + (isErr ? ' err' : '');
+    t.innerHTML = esc(msg) + (detail ? '<pre>' + esc(detail) + '</pre>' : '');
+    clearTimeout(toast.t); toast.t = setTimeout(function () { t.className = 'toast'; }, isErr ? 12000 : 15000);
+  }
+
+  function api(method, url, body) {
+    return fetch(url, { method: method, headers: body ? { 'Content-Type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.statusText); return j; }); });
+  }
+
+  function save() {
+    return api('PUT', '/api/catalog', catalog).then(function () { saved = JSON.stringify(catalog); render(); });
+  }
+
+  $('save').addEventListener('click', function () {
+    save().then(function () { toast('Saved. The public site is unchanged until you publish.'); }).catch(function (e) { toast('Could not save', e.message, true); });
+  });
+  $('revert').addEventListener('click', function () { catalog = JSON.parse(saved); render(); });
+  $('publish').addEventListener('click', function () {
+    var btn = $('publish'); btn.disabled = true;
+    (JSON.stringify(catalog) !== saved ? save() : Promise.resolve())
+      .then(function () { return api('POST', '/api/publish'); })
+      .then(function (r) {
+        toast('Published: ' + r.public.length + ' public, ' + r.teaser.length + ' teased, ' + r.hidden.length + ' private. Preview at localhost:8420, then ship it:',
+          'git add -A && git commit -m "Publish QIS-Skills catalog" && git push');
+      })
+      .catch(function (e) { toast('Publish failed', e.message, true); })
+      .then(function () { btn.disabled = false; });
+  });
+
+  window.addEventListener('beforeunload', function (e) { if (catalog && JSON.stringify(catalog) !== saved) { e.preventDefault(); e.returnValue = ''; } });
+
+  $('asOf').value = today();
+  api('GET', '/api/catalog').then(function (c) { catalog = c; saved = JSON.stringify(c); render(); })
+    .catch(function (e) { toast('Could not load the catalog', e.message, true); });
+})();
+</script>
+</body>
+</html>

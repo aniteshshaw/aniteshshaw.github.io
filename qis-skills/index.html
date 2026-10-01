@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QIS-Skills — AI skills for quality engineering | Anitesh Shaw</title>
+<meta name="description" content="QIS-Skills is a private library of GitHub Copilot agent skills for quality engineering: story reviews, test design, Playwright automation, PR review, triage, and accessibility. Built by Anitesh Shaw." />
+<meta name="author" content="Anitesh Kumar Shaw" />
+<link rel="canonical" href="https://aniteshshaw.github.io/qis-skills/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aniteshshaw.github.io/qis-skills/" />
+<meta property="og:title" content="QIS-Skills — senior QE judgment, inside your editor" />
+<meta property="og:description" content="A private library of GitHub Copilot agent skills for quality engineering, by Anitesh Shaw." />
+<meta property="og:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="QIS-Skills — senior QE judgment, inside your editor" />
+<meta name="twitter:description" content="A private library of GitHub Copilot agent skills for quality engineering." />
+<meta name="twitter:image" content="https://aniteshshaw.github.io/assets/og-image.png" />
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+<script>document.documentElement.classList.add('js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "QIS-Skills",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "VS Code with GitHub Copilot",
+  "description": "A private library of GitHub Copilot agent skills for quality engineering.",
+  "author": { "@type": "Person", "name": "Anitesh Kumar Shaw", "url": "https://aniteshshaw.github.io/" }
+}
+</script>
+</head>
+<body class="page-product">
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav__logo" href="../"><span class="nav__logo-mark">AS</span><span class="nav__logo-sub">QIS-Skills</span></a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+      <span class="nav__bar" aria-hidden="true"></span><span class="nav__bar" aria-hidden="true"></span><span class="nav__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav__menu" id="navMenu">
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#anatomy">How it's built</a></li>
+      <li><a href="#catalog">Skills</a></li>
+      <li><a href="#access">Demo</a></li>
+      <li><a href="../" class="nav__cta">Anitesh Shaw →</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- PRODUCT HERO -->
+  <section class="p-hero" aria-labelledby="qis-title">
+    <div class="p-hero__bg" aria-hidden="true"></div>
+    <div class="container p-hero__grid">
+      <div class="p-hero__copy">
+        <span class="product-badge">Product · Private beta</span>
+        <h1 id="qis-title" class="wordmark">QIS<span>-Skills</span></h1>
+        <p class="p-hero__claim">The checklist a senior QA lead runs in their head, <span class="accent">written down for Copilot.</span></p>
+        <p class="hero__lead">
+          QIS-Skills is my library of GitHub Copilot agent skills for quality work. Each one reviews a
+          story, designs tests, writes Playwright code, checks a PR, or files a defect the way an
+          experienced engineer would, and then waits for a person to approve the result. It grew out
+          of <strong>QIS</strong>, the agent workflow my teams use every sprint, which cut QA analysis
+          and design effort by <strong>60–70%</strong>.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="mailto:emailanitesh@gmail.com?subject=QIS-Skills%20walkthrough">Ask for a walkthrough</a>
+          <a class="btn btn--secondary" href="#anatomy">How a skill works</a>
+        </div>
+      </div>
+
+      <div class="chat-demo" id="chatDemo">
+        <div class="chat-demo__bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <em>Copilot Chat · Agent mode</em>
+          <span class="chat-demo__live">illustrative session</span>
+        </div>
+        <p class="visually-hidden">An animated example. Someone asks Copilot whether a story is ready for sprint. A story readiness skill reads the story and its epic, checks the code and existing tests, and replies that three acceptance criteria are vague and two questions need the product owner.</p>
+        <div class="chat-demo__body" aria-hidden="true">
+          <div class="chat-msg"><span class="chat-msg__who">You</span><p class="chat-msg__text" data-slot="prompt">Is story #4821 ready for sprint?</p></div>
+          <p class="chat-skill is-in" data-slot="skill"><span class="chat-skill__dot"></span>Using skill <code>story readiness</code></p>
+          <ul class="chat-steps" data-slot="steps">
+            <li class="is-done">Read the story and its parent epic</li>
+            <li class="is-done">Checked 6 sibling stories</li>
+            <li class="is-done">Scanned validation rules in the code</li>
+            <li class="is-done">Looked up existing test cases</li>
+          </ul>
+          <div class="chat-result is-in" data-slot="result">
+            <strong>Not ready yet</strong>
+            <ul>
+              <li class="k-warn">3 acceptance criteria are vague</li>
+              <li class="k-info">2 questions only the PO can answer</li>
+              <li class="k-ok">Suggested estimate: 5 points, medium confidence</li>
+            </ul>
+          </div>
+        </div>
+        <div class="chat-demo__tabs" data-slot="tabs" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- qis:begin stats -->
+<ul class="kpis" aria-label="QIS-Skills at a glance">
+        <li class="kpi"><span class="kpi__value kpi__value--word">Private</span><span class="kpi__label">beta, shown live on request</span></li>
+        <li class="kpi"><span class="kpi__value">6</span><span class="kpi__label">stages from story to release</span></li>
+        <li class="kpi"><span class="kpi__value">60–70%</span><span class="kpi__label">less QA analysis &amp; design effort*</span></li>
+        <li class="kpi"><span class="kpi__value"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg></span><span class="kpi__label">Technology Innovation Award</span></li>
+      </ul>
+<!-- qis:end stats -->
+      <ul class="works-with" aria-label="Works with">
+        <li>GitHub Copilot agent mode</li><li>VS Code</li><li>Azure DevOps · MCP</li><li>Playwright · MCP</li>
+        <li>.NET / MSTest</li><li>Taurus / BZT</li><li>Datadog RUM</li><li>WCAG · Section 508</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="section" aria-labelledby="why-title">
+    <div class="container">
+      <span class="section__label">Why I built it</span>
+      <h2 class="section__title" id="why-title">Good QA judgment didn't scale past a few people</h2>
+      <p class="section__lead">Copilot can produce tests and review comments all day. My problem was that a lot of what it produced looked right and wasn't. So I started writing down what my best engineers check, step by step, and turned each checklist into a skill.</p>
+      <div class="versus reveal">
+        <div class="versus__col versus__col--before">
+          <h3>What I kept seeing</h3>
+          <ul>
+            <li>The good questions lived in two or three senior heads</li>
+            <li>Vague stories reached the sprint and came back as rework</li>
+            <li>Generated tests used selectors that didn't exist</li>
+            <li>PR review depended on who had time that afternoon</li>
+            <li>Test evidence sat in CI logs that nobody opened</li>
+          </ul>
+        </div>
+        <div class="versus__arrow" aria-hidden="true">→</div>
+        <div class="versus__col versus__col--after">
+          <h3>What the skills changed</h3>
+          <ul>
+            <li>A new engineer runs the same checks a veteran would</li>
+            <li>Gaps get raised before planning instead of mid-sprint</li>
+            <li>Locators come from the real code, every time</li>
+            <li>Every test PR gets the same six checks, and a person signs off</li>
+            <li>Results land on the story, where people actually look</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section id="pipeline" class="section section--alt" aria-labelledby="pipeline-title">
+    <div class="container">
+      <span class="section__label">The pipeline</span>
+      <h2 class="section__title" id="pipeline-title">One skill per stage, from new story to release</h2>
+      <p class="section__lead">The core skills chain together. Each produces something the next one uses, so quality builds up through the sprint instead of getting checked at the end.</p>
+      <!-- qis:begin pipeline -->
+<figure class="blueprint blueprint--pipeline reveal">
+        <svg class="bp bp--h" data-axis="x" data-from="40" data-to="1060" viewBox="0 0 1100 330" role="img" aria-labelledby="bp1-t" xmlns="http://www.w3.org/2000/svg">
+  <title id="bp1-t">1. Story review, 2. Test design, 3. Automation, 4. PR review, 5. Evidence, 6. Triage</title><defs>
+    <pattern id="bp1-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" fill="none" class="bp-grid"/></pattern>
+    <filter id="bp1-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter>
+    <marker id="bp1-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1l8 4-8 4" fill="none" class="bp-arrowhead"/></marker>
+  </defs>
+  <rect width="1100" height="330" fill="url(#bp1-grid)"/>
+  <g filter="url(#bp1-ink)">
+    <path d="M40 172 H1060" class="bp-line"/>
+    <path d="M40 172 H1060" class="bp-flow"/>
+    <circle cx="40" cy="172" r="20" class="bp-term"/>
+    <circle cx="1060" cy="172" r="20" class="bp-term bp-term--end"/>
+  </g>
+  <g transform="translate(31 163) scale(.75)" class="bp-ico"><path d="M4 5h16v11H9l-5 4z"/></g>
+  <g transform="translate(1051 163) scale(.75)" class="bp-ico bp-ico--end"><path d="m5 12.5 4.5 4.5L19 7.5"/></g>
+  <text x="40" y="216" class="bp-term-label" text-anchor="middle">new story</text>
+  <text x="1060" y="216" class="bp-term-label" text-anchor="middle">release-ready</text>
+  <circle r="7" cx="40" cy="172" class="bp-packet"/>
+    <g class="bp-node" data-a="104" data-b="232">
+      <rect x="104" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="118" y="135" class="bp-num">01</text>
+      <g transform="translate(200 122) scale(.8)" class="bp-ico"><rect x="5.5" y="4" width="13" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9 13.5 2 2 4-4.5"/></g>
+      <text x="118" y="159" class="bp-title">Story review</text>
+      
+    </g><text x="168" y="261" class="bp-artifact" text-anchor="middle">→ Readiness notes</text>
+    <g class="bp-node" data-a="256.8" data-b="384.8">
+      <rect x="256.8" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="270.8" y="135" class="bp-num">02</text>
+      <g transform="translate(352.8 122) scale(.8)" class="bp-ico"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13 7 4 4"/></g>
+      <text x="270.8" y="159" class="bp-title">Test design</text>
+      
+    </g><text x="320.8" y="261" class="bp-artifact" text-anchor="middle">→ Test cases</text>
+    <g class="bp-node" data-a="409.6" data-b="537.6">
+      <rect x="409.6" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="423.6" y="135" class="bp-num">03</text>
+      <g transform="translate(505.6 122) scale(.8)" class="bp-ico"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="m9.5 12.5-2 2 2 2M14.5 12.5l2 2-2 2"/></g>
+      <text x="423.6" y="159" class="bp-title">Automation</text>
+      
+    </g><text x="473.6" y="261" class="bp-artifact" text-anchor="middle">→ Playwright specs</text>
+    <g class="bp-node" data-a="562.4000000000001" data-b="690.4000000000001">
+      <rect x="562.4000000000001" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="576.4000000000001" y="135" class="bp-num">04</text>
+      <g transform="translate(658.4000000000001 122) scale(.8)" class="bp-ico"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></g>
+      <text x="576.4000000000001" y="159" class="bp-title">PR review</text>
+      
+    </g><text x="626.4000000000001" y="261" class="bp-artifact" text-anchor="middle">→ Review verdict</text>
+    <g class="bp-node" data-a="715.2" data-b="843.2">
+      <rect x="715.2" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="729.2" y="135" class="bp-num">05</text>
+      <g transform="translate(811.2 122) scale(.8)" class="bp-ico"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g>
+      <text x="729.2" y="159" class="bp-title">Evidence</text>
+      
+    </g><text x="779.2" y="261" class="bp-artifact" text-anchor="middle">→ Linked results</text>
+    <g class="bp-node" data-a="868" data-b="996">
+      <rect x="868" y="113" width="128" height="118" rx="10" class="bp-box" filter="url(#bp1-ink)"/>
+      <text x="882" y="135" class="bp-num">06</text>
+      <g transform="translate(964 122) scale(.8)" class="bp-ico"><rect x="8" y="7" width="8" height="12" rx="4"/><path d="M12 11v8M4.5 10H8M16 10h3.5M4.5 15.5H8M16 15.5h3.5M9.5 7.5 7.5 4.5M14.5 7.5l2-3"/></g>
+      <text x="882" y="159" class="bp-title">Triage</text>
+      
+    </g><text x="932" y="261" class="bp-artifact" text-anchor="middle">→ Filed defects</text><text x="636.4000000000001" y="58" class="bp-note" text-anchor="start">agents prepare · humans approve</text>
+    <path d="M650.4000000000001 68 C 652.4000000000001 80, 630.4000000000001 88, 626.4000000000001 105" class="bp-note-arrow" marker-end="url(#bp1-arr)"/><g class="bp-sheet"><rect x="770" y="296" width="310" height="24" rx="3"/><text x="780" y="313">QIS · STORY → RELEASE</text></g></svg><svg class="bp bp--v" data-axis="y" data-from="30" data-to="768" viewBox="0 0 360 798" role="img" aria-labelledby="bp1v-t" xmlns="http://www.w3.org/2000/svg">
+  <title id="bp1v-t">1. Story review, 2. Test design, 3. Automation, 4. PR review, 5. Evidence, 6. Triage</title><defs>
+    <pattern id="bp1v-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" fill="none" class="bp-grid"/></pattern>
+    <filter id="bp1v-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter>
+    <marker id="bp1v-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1l8 4-8 4" fill="none" class="bp-arrowhead"/></marker>
+  </defs>
+  <rect width="360" height="798" fill="url(#bp1v-grid)"/>
+  <g filter="url(#bp1v-ink)">
+    <path d="M168 30 V768" class="bp-line"/><path d="M168 30 V768" class="bp-flow"/>
+    <circle cx="168" cy="30" r="18" class="bp-term"/><circle cx="168" cy="768" r="18" class="bp-term bp-term--end"/>
+  </g>
+  <g transform="translate(160 22) scale(.68)" class="bp-ico"><path d="M4 5h16v11H9l-5 4z"/></g>
+  <g transform="translate(160 760) scale(.68)" class="bp-ico bp-ico--end"><path d="m5 12.5 4.5 4.5L19 7.5"/></g>
+  <text x="196" y="35" class="bp-term-label">new story</text>
+  <text x="196" y="773" class="bp-term-label">release-ready</text>
+  <circle r="6" cx="168" cy="30" class="bp-packet"/><g class="bp-node" data-a="74" data-b="152">
+      <rect x="34" y="74" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="98" class="bp-num">01</text>
+      <text x="80" y="99" class="bp-title">Story review</text>
+      <text x="80" y="120" class="bp-sub">→ Readiness notes</text>
+    </g><g class="bp-node" data-a="186" data-b="264">
+      <rect x="34" y="186" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="210" class="bp-num">02</text>
+      <text x="80" y="211" class="bp-title">Test design</text>
+      <text x="80" y="232" class="bp-sub">→ Test cases</text>
+    </g><g class="bp-node" data-a="298" data-b="376">
+      <rect x="34" y="298" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="322" class="bp-num">03</text>
+      <text x="80" y="323" class="bp-title">Automation</text>
+      <text x="80" y="344" class="bp-sub">→ Playwright specs</text>
+    </g><g class="bp-node" data-a="410" data-b="488">
+      <rect x="34" y="410" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="434" class="bp-num">04</text>
+      <text x="80" y="435" class="bp-title">PR review</text>
+      <text x="80" y="456" class="bp-sub">→ Review verdict</text>
+    </g><text x="352" y="401" class="bp-note bp-note--sm" text-anchor="end">agents prepare · humans approve</text><g class="bp-node" data-a="522" data-b="600">
+      <rect x="34" y="522" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="546" class="bp-num">05</text>
+      <text x="80" y="547" class="bp-title">Evidence</text>
+      <text x="80" y="568" class="bp-sub">→ Linked results</text>
+    </g><g class="bp-node" data-a="634" data-b="712">
+      <rect x="34" y="634" width="268" height="78" rx="10" class="bp-box" filter="url(#bp1v-ink)"/>
+      <text x="48" y="658" class="bp-num">06</text>
+      <text x="80" y="659" class="bp-title">Triage</text>
+      <text x="80" y="680" class="bp-sub">→ Filed defects</text>
+    </g></svg>
+        <figcaption>One skill per stage. Each one hands its output to the next.</figcaption>
+      </figure>
+<!-- qis:end pipeline -->
+    </div>
+  </section>
+
+  <!-- ANATOMY -->
+  <section id="anatomy" class="section" aria-labelledby="anatomy-title">
+    <div class="container">
+      <span class="section__label">How it's built</span>
+      <h2 class="section__title" id="anatomy-title">What's inside a skill</h2>
+      <p class="section__lead">A skill is a small folder of Markdown. Here's what happens between typing a question in Copilot Chat and getting something you can use.</p>
+
+      <ol class="anatomy reveal">
+        <li class="anatomy__card">
+          <span class="anatomy__step">01 · The package</span>
+          <pre class="anatomy__code" aria-label="Skill folder structure"><b>qis-&lt;skill&gt;/</b>
+├─ SKILL.md     <i># playbook</i>
+├─ references/  <i># on demand</i>
+└─ scripts/     <i># helpers</i></pre>
+          <p>Plain files in Git. You can review a skill the same way you review code.</p>
+          <span class="scribble">no black boxes</span>
+        </li>
+        <li class="anatomy__card">
+          <span class="anatomy__step">02 · The trigger</span>
+          <pre class="anatomy__code" aria-label="Skill description frontmatter">---
+name: qis-&lt;skill&gt;
+description: &gt;
+  Use when someone asks
+  <b>"is this story ready?"</b>
+  or wants AC checked…
+---</pre>
+          <p>Copilot reads the description and picks the right skill for a plain-English request.</p>
+          <span class="scribble">the description is the router</span>
+        </li>
+        <li class="anatomy__card">
+          <span class="anatomy__step">03 · The playbook</span>
+          <ul class="anatomy__list">
+            <li>Required checks before it starts</li>
+            <li>Look things up in the code and tracker</li>
+            <li>Only ask what it can't find</li>
+            <li>Never touch credentials</li>
+          </ul>
+          <p>The steps a senior engineer would follow, in order, every time.</p>
+          <span class="scribble">discipline, not vibes</span>
+        </li>
+        <li class="anatomy__card anatomy__card--out">
+          <span class="anatomy__step">04 · The hand-off</span>
+          <ul class="anatomy__list">
+            <li>Draft → <strong>you approve</strong> → post</li>
+            <li>Everything traced to a story and AC</li>
+            <li>Evidence attached to the work item</li>
+          </ul>
+          <p>The agent does the legwork. A person makes the call.</p>
+          <span class="scribble">you stay in charge</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section id="principles" class="section section--alt" aria-labelledby="principles-title">
+    <div class="container">
+      <span class="section__label">House rules</span>
+      <h2 class="section__title" id="principles-title">Four rules every skill follows</h2>
+      <div class="principles">
+        <article class="principle-card reveal">
+          <span class="principle-card__n">01</span>
+          <h3>Look it up, don't make it up</h3>
+          <p>Locators, validation rules, and existing coverage come from the actual code and tracker.</p>
+        </article>
+        <article class="principle-card reveal">
+          <span class="principle-card__n">02</span>
+          <h3>A person approves</h3>
+          <p>Skills draft and score. Nothing gets posted to a PR or exported to the tracker until someone says yes.</p>
+        </article>
+        <article class="principle-card reveal">
+          <span class="principle-card__n">03</span>
+          <h3>Everything traces back</h3>
+          <p>Each test, finding, and bug links to a story and an acceptance criterion. No orphans.</p>
+        </article>
+        <article class="principle-card reveal">
+          <span class="principle-card__n">04</span>
+          <h3>Easy to adapt</h3>
+          <p>Plain Markdown with generic examples, so a team can tailor one to its own stack in an afternoon.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog" class="section" aria-labelledby="catalog-title">
+    <div class="container">
+      <span class="section__label">The skills</span>
+      <h2 class="section__title" id="catalog-title">The library</h2>
+      <!-- qis:begin catalog -->
+<div class="private-panel reveal">
+          <span class="icon-tile icon-tile--lg"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <div>
+            <h3>The catalog is private for now</h3>
+            <p>I'm keeping the individual skills out of public view while QIS-Skills is in private beta. If you want to see them, I'm happy to walk you through the whole library live and show a few running on a sample project.</p>
+            <a class="btn btn--primary" href="mailto:emailanitesh@gmail.com?subject=QIS-Skills%20walkthrough">Ask for a walkthrough</a>
+          </div>
+        </div>
+<!-- qis:end catalog -->
+    </div>
+  </section>
+
+  <!-- qis:begin roadmap -->
+
+<!-- qis:end roadmap -->
+
+  <!-- ORIGIN -->
+  <section id="origin" class="section section--alt" aria-labelledby="origin-title">
+    <div class="container">
+      <span class="section__label">Where it came from</span>
+      <h2 class="section__title" id="origin-title">Built for real sprints first</h2>
+      <ol class="origin">
+        <li class="origin__step reveal">
+          <span class="origin__k">first, the work</span>
+          <h3>QIS on real teams</h3>
+          <p>An agent workflow on GitHub Copilot and MCP that Dev and QE squads use day to day. It cut analysis and design effort 60–70% and won a Technology Innovation Award.</p>
+        </li>
+        <li class="origin__step reveal">
+          <span class="origin__k">then, the product</span>
+          <h3>QIS-Skills</h3>
+          <p>The same playbooks rewritten as generic skills, with no company names, data, or code, so any team could pick them up.</p>
+        </li>
+        <li class="origin__step reveal">
+          <span class="origin__k">and the method</span>
+          <h3><a href="../#book">The book</a></h3>
+          <p><em>AI-Native Quality Engineering</em>, in draft, explains how to design, test, govern, and measure skills like these.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access" class="section" aria-labelledby="access-title">
+    <div class="container">
+      <span class="section__label">Demo</span>
+      <h2 class="section__title" id="access-title">Want to see it work?</h2>
+      <p class="section__lead">The repository is private while I finish the beta. I'd rather show it running than describe it.</p>
+
+      <div class="access-cards">
+        <div class="access-card reveal">
+          <h3>A live walkthrough</h3>
+          <p>Twenty minutes in VS Code: a few skills running on a sample project, start to finish.</p>
+        </div>
+        <div class="access-card reveal">
+          <h3>An architecture deep-dive</h3>
+          <p>For interview panels. How the skills are designed, guarded, evaluated, and rolled out to a team.</p>
+        </div>
+        <div class="access-card reveal">
+          <h3>Read access</h3>
+          <p>Temporary access to the private repo for technical reviewers who want to read the source.</p>
+        </div>
+      </div>
+
+      <div class="cta-band reveal">
+        <div>
+          <h2>Thinking about AI for your QA team?</h2>
+          <p>I'm happy to talk through what worked for us, what didn't, and how I'd start somewhere new.</p>
+        </div>
+        <a class="btn btn--primary" href="mailto:emailanitesh@gmail.com?subject=QIS-Skills%20%E2%80%94%20let%27s%20talk">Get in touch</a>
+      </div>
+      <p class="fineprint">* Measured on the QIS workflow that QIS-Skills grew out of.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="../">Portfolio</a>
+      <a href="../#book">The book</a>
+      <a href="../resume/">Résumé</a>
+    </nav>
+    <p class="footer__note"><span id="footerYear"></span> Anitesh Kumar Shaw · Tampa, FL</p>
+  </div>
+</footer>
+
+<!-- qis:begin demos -->
+<script type="application/json" id="qis-demos">[{"name":"Story review","label":"story readiness","prompt":"Is story #4821 ready for sprint?","steps":["Read the story and its parent epic","Checked 6 sibling stories","Scanned validation rules in the code","Looked up existing test cases"],"title":"Not ready yet","lines":[{"kind":"warn","text":"3 acceptance criteria are vague"},{"kind":"info","text":"2 questions only the PO can answer"},{"kind":"ok","text":"Suggested estimate: 5 points, medium confidence"}]},{"name":"PR review","label":"PR review gate","prompt":"Can I merge PR 912?","steps":["Confirmed it is a test-automation PR","Checked what each assertion proves","Looked for fixed sleeps and flaky waits","Matched tests to acceptance criteria"],"title":"Needs work · 72 / 100","lines":[{"kind":"block","text":"A 3-second sleep will flake in CI"},{"kind":"warn","text":"One acceptance criterion has no assertion"},{"kind":"info","text":"Comments drafted. Post them?"}]},{"name":"Accessibility","label":"accessibility audit","prompt":"Check checkout against WCAG 2.1 AA","steps":["Parsed 6 components","Ran the Trusted Tester checks","Checked contrast, focus order, labels","Mapped findings to WCAG and Section 508"],"title":"7 findings · 2 critical","lines":[{"kind":"block","text":"Two inputs have no programmatic label"},{"kind":"warn","text":"Focus ring is invisible on 3 buttons"},{"kind":"ok","text":"Conformance report drafted"}]}]</script>
+<!-- qis:end demos -->
+<script src="../js/main.js"></script>
+</body>
+</html>
