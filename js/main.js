@@ -167,6 +167,38 @@
     });
   });
 
+  // ---- Workshop tracks (tabs) ----
+  document.querySelectorAll('[data-tracks]').forEach(function (root) {
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    function select(i, focus) {
+      tabs.forEach(function (t, k) {
+        var on = k === i;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        panels[k].hidden = !on;
+        if (on) panels[k].classList.add('is-in');
+      });
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, j = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % n;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + n) % n;
+        if (e.key === 'Home') j = 0;
+        if (e.key === 'End') j = n - 1;
+        if (j !== null) { e.preventDefault(); select(j, true); }
+      });
+    });
+    // A link like #track-test opens that track directly.
+    var fromHash = panels.findIndex(function (p) { return p && '#' + p.id === location.hash; });
+    var initial = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    select(fromHash >= 0 ? fromHash : Math.max(0, initial));
+    if (fromHash >= 0) panels[fromHash].scrollIntoView();
+  });
+
   // ---- Catalog filters ----
   var filterBtns = document.querySelectorAll('[data-filter]');
   var cards = document.querySelectorAll('.skill-card');

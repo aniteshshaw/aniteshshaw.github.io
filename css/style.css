@@ -371,8 +371,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .lab-track__n { font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber); letter-spacing: 0.06em; text-transform: uppercase; }
 .lab-track strong { font-size: 0.86rem; line-height: 1.25; }
-.lab-track code { font-size: 0.68rem; color: var(--teal); background: rgba(79, 209, 165, 0.08); border-radius: 4px; padding: 0.15rem 0.35rem; justify-self: start; word-break: break-word; }
+.lab-track code { font-size: 0.68rem; color: var(--teal); background: rgba(79, 209, 165, 0.08); border-radius: 4px; padding: 0.15rem 0.35rem; justify-self: start; overflow-wrap: break-word; white-space: normal; }
 .lab-path__outcomes { margin-bottom: var(--space-3); }
+/* Workshop tracks: tabs when JS runs, all tracks stacked when it doesn't */
+.tracks__tabs { display: none; }
+.js .tracks__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; margin-bottom: var(--space-2); }
+.tracks__tab {
+  display: grid; gap: 0.2rem; text-align: left; cursor: pointer;
+  padding: 0.9rem 1.05rem; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--panel); color: var(--offwhite); font-family: var(--font-body);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.tracks__tab:hover { border-color: rgba(232, 178, 90, 0.45); }
+.tracks__tab[aria-selected="true"] { border-color: var(--amber); background: rgba(232, 178, 90, 0.08); box-shadow: 0 0 28px rgba(232, 178, 90, 0.1); }
+.tracks__tab-n { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+.tracks__tab-t { font-family: var(--font-head); font-weight: 600; font-size: 1rem; line-height: 1.25; }
+.tracks__tab-m { font-size: 0.8rem; color: var(--muted); }
+.track + .track { margin-top: var(--space-3); }
+.js .tracks .track + .track { margin-top: 0; }
+.track[hidden] { display: none; }
+.track:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+@media (max-width: 700px) { .js .tracks__tabs { grid-template-columns: 1fr; } }
 @media (max-width: 1000px) {
   .lab-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .lab-track::before { display: none; }
