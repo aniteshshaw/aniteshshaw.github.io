@@ -341,6 +341,47 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .flywheel__viz { position: relative; top: 0; max-width: 420px; justify-self: center; width: 100%; }
 }
 
+/* ---------- Training & workshops ---------- */
+.formats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); margin-bottom: var(--space-4); }
+.format-card { padding: var(--space-3); border-radius: var(--radius); background: var(--panel); border: 1px solid var(--border); transition: border-color 0.25s ease, transform 0.25s ease; }
+.format-card:hover { border-color: rgba(232, 178, 90, 0.4); transform: translateY(-3px); }
+.format-card__meta { display: block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+.format-card h3 { font-size: 1.1rem; margin: 0 0 0.45rem; }
+.format-card p { font-size: 0.9rem; color: var(--offwhite-dim); margin: 0; }
+@media (max-width: 1000px) { .formats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .formats { grid-template-columns: 1fr; } }
+
+.lab-path {
+  padding: var(--space-4); border-radius: 20px; border: 1px solid rgba(141, 190, 255, 0.18);
+  background-color: #0A1426;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.lab-path__head h3 { font-size: 1.3rem; margin: 0 0 0.3rem; }
+.lab-path__head p { font-family: var(--font-hand); font-size: 1.35rem; color: var(--amber); margin: 0 0 var(--space-3); }
+.lab-track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.6rem; position: relative; margin-bottom: var(--space-3); }
+.lab-track::before {
+  content: ""; position: absolute; left: 4%; right: 4%; top: 1.15rem; height: 2px;
+  background: repeating-linear-gradient(90deg, var(--amber) 0 6px, transparent 6px 12px); opacity: 0.45;
+}
+.lab-track li {
+  position: relative; display: grid; gap: 0.35rem; align-content: start;
+  padding: 0.75rem 0.7rem; border-radius: 12px; background: rgba(18, 31, 56, 0.92); border: 1px solid var(--border);
+  animation: pipe-lit 8.4s linear infinite; animation-delay: calc(var(--i) * 1.2s - 0.2s);
+}
+.lab-track__n { font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber); letter-spacing: 0.06em; text-transform: uppercase; }
+.lab-track strong { font-size: 0.86rem; line-height: 1.25; }
+.lab-track code { font-size: 0.68rem; color: var(--teal); background: rgba(79, 209, 165, 0.08); border-radius: 4px; padding: 0.15rem 0.35rem; justify-self: start; word-break: break-word; }
+.lab-path__outcomes { margin-bottom: var(--space-3); }
+@media (max-width: 1000px) {
+  .lab-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lab-track::before { display: none; }
+}
+@media (max-width: 560px) {
+  .lab-path { padding: var(--space-3); }
+  .lab-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ---------- Case studies ---------- */
 .case-studies { display: grid; gap: var(--space-3); }
 .case-study {

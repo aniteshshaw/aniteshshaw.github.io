@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20261001c" />
+<link rel="stylesheet" href="css/style.css?v=20261001d" />
 <script>document.documentElement.classList.add('js');</script>
 
 <script type="application/ld+json">
@@ -61,6 +61,7 @@
     </button>
     <ul class="nav__menu" id="navMenu">
       <li><a href="#enablement">AI Enablement</a></li>
+      <li><a href="#training">Training</a></li>
       <li><a href="#case-studies">Impact</a></li>
       <li><a href="qis-skills/">QIS-Skills</a></li>
       <li><a href="#book">Book</a></li>
@@ -195,7 +196,7 @@
             <div>
               <h3>Spread it person to person</h3>
               <p>All-hands demos, lunch-and-learns, a hackathon, a champion in each squad. People copy colleagues they trust far faster than they follow a mandate.</p>
-              <span class="evidence">All Hands · TechTrek · Lunch &amp; Learn · hackathon win</span>
+              <span class="evidence">All Hands · TechTrek · <a href="#training">hands-on labs</a> · hackathon win</span>
             </div>
           </li>
         </ol>
@@ -205,6 +206,69 @@
         <p><span>AI proposes.</span> <span>Deterministic code enforces.</span> <span class="accent">People decide.</span></p>
         <footer>The rule every agent I build follows. It's also the core idea of my book.</footer>
       </blockquote>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training" class="section" aria-labelledby="training-title">
+    <div class="container">
+      <span class="section__label">Training &amp; workshops</span>
+      <h2 class="section__title" id="training-title">I teach teams to build their own AI helpers</h2>
+      <p class="section__lead">
+        Most people learn Copilot by poking at the chat box and giving up when it guesses. I'd rather they
+        build something. In my sessions everyone writes a skill, a custom agent and an instruction file on a
+        practice app, and leaves knowing which one to reach for and why.
+      </p>
+
+      <div class="formats">
+        <article class="format-card reveal">
+          <span class="format-card__meta">90 min · laptops open</span>
+          <h3>Hands-on labs</h3>
+          <p>A guided build, one file at a time. Each lab ends on a gap that the next one fixes, so people see what every file actually changes.</p>
+        </article>
+        <article class="format-card reveal">
+          <span class="format-card__meta">Half day · one team</span>
+          <h3>Team workshops</h3>
+          <p>We pick a task that eats the team's week and turn it into a skill they keep using, with guardrails and a way to check it works.</p>
+        </article>
+        <article class="format-card reveal">
+          <span class="format-card__meta">45 min · any group</span>
+          <h3>Lunch &amp; learns</h3>
+          <p>One problem, one skill, a before and after. The easiest way to get the curious people started and the skeptics asking questions.</p>
+        </article>
+        <article class="format-card reveal">
+          <span class="format-card__meta">All Hands · TechTrek</span>
+          <h3>Talks &amp; seminars</h3>
+          <p>For leaders and wider audiences: bringing AI into QA without losing trust, what to measure, and the mistakes I'd skip next time.</p>
+        </article>
+      </div>
+
+      <div class="lab-path reveal">
+        <div class="lab-path__head">
+          <h3>The lab path</h3>
+          <p>From "what can Copilot even see?" to "which of these files actually stops anything?"</p>
+        </div>
+        <ol class="lab-track">
+          <li style="--i:0"><span class="lab-track__n">Lab 0</span><strong>What Copilot can see</strong><code>context</code></li>
+          <li style="--i:1"><span class="lab-track__n">Lab 1</span><strong>A clear prompt</strong><code>prompt + context</code></li>
+          <li style="--i:2"><span class="lab-track__n">Lab 2</span><strong>A reusable skill</strong><code>SKILL.md</code></li>
+          <li style="--i:3"><span class="lab-track__n">Lab 3</span><strong>A custom agent</strong><code>.agent.md · tools</code></li>
+          <li style="--i:4"><span class="lab-track__n">Lab 4</span><strong>Team-wide rules</strong><code>copilot-instructions.md</code></li>
+          <li style="--i:5"><span class="lab-track__n">Lab 5</span><strong>Hand-offs</strong><code>.prompt.md · handoffs</code></li>
+          <li style="--i:6"><span class="lab-track__n">Lab 6</span><strong>Prove what each did</strong><code>you decide</code></li>
+        </ol>
+        <ul class="checklist lab-path__outcomes" aria-label="What people leave with">
+          <li>Know when to use a prompt, a skill, an agent or an instruction file</li>
+          <li>Have written each one themselves, on a real practice app</li>
+          <li>Can limit what an agent is allowed to touch</li>
+          <li>Can tell whether a file changed anything at all</li>
+        </ul>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="https://github.com/aniteshshaw/ai-native-qe-companion/tree/main/labs/first-ai-qe-assistant">Try the lab yourself →</a>
+          <a class="btn btn--secondary" href="mailto:emailanitesh@gmail.com?subject=AI%20skills%20session%20for%20my%20team">Invite me to run a session</a>
+        </div>
+        <p class="fineprint">No coding needed. The practice app and its data are fictional.</p>
+      </div>
     </div>
   </section>
 
@@ -567,7 +631,7 @@
         <div class="contact-card">
           <span class="contact-status">Open to leadership roles</span>
           <h3>Email</h3>
-          <p>Roles, speaking, a QIS-Skills demo, or feedback on the book.</p>
+          <p>Roles, talks and workshops, a QIS-Skills demo, or feedback on the book.</p>
           <a href="mailto:emailanitesh@gmail.com">emailanitesh@gmail.com</a>
         </div>
         <div class="contact-card">
@@ -595,6 +659,7 @@
   <div class="container footer__inner">
     <nav class="footer__nav" aria-label="Footer">
       <a href="#enablement">AI Enablement</a>
+      <a href="#training">Training</a>
       <a href="qis-skills/">QIS-Skills</a>
       <a href="#book">Book</a>
       <a href="personal/">Builder</a>
@@ -604,6 +669,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20261001c"></script>
+<script src="js/main.js?v=20261001d"></script>
 </body>
 </html>

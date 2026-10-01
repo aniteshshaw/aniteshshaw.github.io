@@ -259,7 +259,7 @@ function head({ title, description, canonical, depth }) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="${up}css/style.css?v=20261001c" />
+<link rel="stylesheet" href="${up}css/style.css?v=20261001d" />
 <script>document.documentElement.classList.add('js');</script>
 </head>`;
 }
@@ -297,7 +297,7 @@ function footer(depth) {
     <p class="footer__note"><span id="footerYear"></span> Anitesh Kumar Shaw · Tampa, FL</p>
   </div>
 </footer>
-<script src="${up}js/main.js?v=20261001c"></script>`;
+<script src="${up}js/main.js?v=20261001d"></script>`;
 }
 
 const statusBadge = (s) => {
