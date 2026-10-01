@@ -135,24 +135,37 @@
     });
   });
 
-  // ---- Book cover tilt ----
-  if (!reduceMotion) {
-    document.querySelectorAll('[data-tilt]').forEach(function (el) {
-      var img = el.querySelector('img');
-      if (!img) return;
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5;
-        var y = (e.clientY - r.top) / r.height - 0.5;
-        img.style.setProperty('--ry', (x * 22 - 6) + 'deg');
-        img.style.setProperty('--rx', (-y * 14) + 'deg');
-      });
-      el.addEventListener('pointerleave', function () {
-        img.style.removeProperty('--ry');
-        img.style.removeProperty('--rx');
-      });
+  // ---- Book: tilt on hover, flip to the back cover on click ----
+  document.querySelectorAll('[data-book-flip]').forEach(function (book) {
+    var inner = book.querySelector('.book-flip__inner');
+    var front = book.querySelector('.book-flip__face--front');
+    var back = book.querySelector('.book-flip__face--back');
+    var btn = book.parentElement.querySelector('[data-book-flip-btn]');
+    var label = btn && btn.querySelector('.book-flip__label');
+
+    function setFlipped(on) {
+      book.classList.toggle('is-flipped', on);
+      front.setAttribute('aria-hidden', String(on));
+      back.setAttribute('aria-hidden', String(!on));
+      if (btn) btn.setAttribute('aria-pressed', String(on));
+      if (label) label.textContent = on ? 'See the front cover' : 'See the back cover';
+    }
+    book.addEventListener('click', function () { setFlipped(!book.classList.contains('is-flipped')); });
+    if (btn) btn.addEventListener('click', function () { setFlipped(!book.classList.contains('is-flipped')); });
+
+    if (reduceMotion || !inner) return;
+    book.addEventListener('pointermove', function (e) {
+      var r = book.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      inner.style.setProperty('--ry', (x * 20 - 6) + 'deg');
+      inner.style.setProperty('--rx', (-y * 12) + 'deg');
     });
-  }
+    book.addEventListener('pointerleave', function () {
+      inner.style.removeProperty('--ry');
+      inner.style.removeProperty('--rx');
+    });
+  });
 
   // ---- Catalog filters ----
   var filterBtns = document.querySelectorAll('[data-filter]');

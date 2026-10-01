@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20261001b" />
+<link rel="stylesheet" href="css/style.css?v=20261001c" />
 <script>document.documentElement.classList.add('js');</script>
 
 <script type="application/ld+json">
@@ -90,7 +90,7 @@
         </p>
         <div class="hero__ctas">
           <a class="btn btn--primary" href="#enablement">How I run AI adoption</a>
-          <a class="btn btn--secondary" href="assets/resume.pdf">Download résumé</a>
+          <a class="btn btn--secondary" href="assets/resume.pdf">Download resume</a>
         </div>
         <ul class="hero__socials">
           <li><a href="https://www.linkedin.com/in/aniteshshaw/">LinkedIn</a></li>
@@ -326,9 +326,13 @@
   <section id="book" class="section section--alt book-feature" aria-labelledby="book-title">
     <div class="container book-feature__grid">
       <div class="book-feature__cover reveal">
-        <div class="book3d" data-tilt>
-          <img src="assets/book/ai-native-qe-cover.webp" alt="Draft cover of AI-Native Quality Engineering: A Field Guide, by Anitesh Shaw. A sketched robot labelled QE studies a blueprint in front of a city skyline." width="640" height="1024" loading="lazy" />
+        <div class="book-flip" data-book-flip>
+          <div class="book-flip__inner">
+            <img class="book-flip__face book-flip__face--front" src="assets/book/ai-native-qe-front.webp" alt="Front cover of AI-Native Quality Engineering: A Field Guide, by Anitesh Shaw. A sketched robot labelled QE studies a blueprint in front of a city skyline." width="640" height="914" loading="lazy" />
+            <img class="book-flip__face book-flip__face--back" src="assets/book/ai-native-qe-back.webp" alt="Back cover of AI-Native Quality Engineering. It describes the book as a practical field guide for quality engineers and QE leaders, lists what readers learn, and includes a short author bio with photo." width="640" height="914" loading="lazy" aria-hidden="true" />
+          </div>
         </div>
+        <button class="book-flip__btn" type="button" aria-pressed="false" data-book-flip-btn><span aria-hidden="true">↻</span> <span class="book-flip__label">See the back cover</span></button>
         <p class="book-feature__status"><span class="live-dot" aria-hidden="true"></span>Draft · with reviewers</p>
       </div>
 
@@ -380,7 +384,7 @@
     <div class="container">
       <span class="section__label">Experience</span>
       <h2 class="section__title" id="experience-title">18 years, five long client engagements</h2>
-      <p class="section__lead">I've been with one global IT services firm since 2007, on long engagements with large clients. The details are on the <a href="resume/">résumé page</a> and in the <a href="assets/resume.pdf">PDF</a>.</p>
+      <p class="section__lead">I've been with one global IT services firm since 2007, on long engagements with large clients. The details are on the <a href="resume/">resume page</a> and in the <a href="assets/resume.pdf">PDF</a>.</p>
       <ol class="timeline">
         <li class="timeline__item reveal">
           <span class="timeline__dates">2023 – Present</span>
@@ -577,9 +581,9 @@
           <a href="https://github.com/aniteshshaw">github.com/aniteshshaw</a>
         </div>
         <div class="contact-card">
-          <h3>Résumé</h3>
+          <h3>Resume</h3>
           <p>The short version of everything above.</p>
-          <a href="assets/resume.pdf">Download PDF résumé</a>
+          <a href="assets/resume.pdf">Download PDF resume</a>
         </div>
       </div>
     </div>
@@ -594,12 +598,12 @@
       <a href="qis-skills/">QIS-Skills</a>
       <a href="#book">Book</a>
       <a href="personal/">Builder</a>
-      <a href="resume/">Résumé</a>
+      <a href="resume/">Resume</a>
     </nav>
     <p class="footer__note"><span id="footerYear"></span> Anitesh Kumar Shaw · Tampa, FL</p>
   </div>
 </footer>
 
-<script src="js/main.js?v=20261001b"></script>
+<script src="js/main.js?v=20261001c"></script>
 </body>
 </html>

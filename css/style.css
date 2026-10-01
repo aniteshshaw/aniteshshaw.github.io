@@ -431,18 +431,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- Book feature ---------- */
 .book-feature__grid { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: var(--space-5); align-items: start; }
 .book-feature__cover { position: sticky; top: 100px; }
-.book3d {
-  perspective: 1200px; max-width: 280px; margin: 0 auto;
+.book-flip { perspective: 1400px; max-width: 280px; margin: 0 auto; cursor: pointer; }
+.book-flip--sm { max-width: 230px; }
+.book-flip__inner {
+  position: relative; transform-style: preserve-3d;
+  transform: rotateY(calc(var(--ry, -14deg) + var(--flip, 0deg))) rotateX(var(--rx, 4deg));
+  transition: transform 0.7s var(--ease);
 }
-.book3d img {
-  width: 100%; border-radius: 4px 10px 10px 4px;
-  transform: rotateY(var(--ry, -14deg)) rotateX(var(--rx, 4deg));
-  transform-style: preserve-3d;
-  transition: transform 0.4s var(--ease);
-  box-shadow: -2px 0 0 rgba(255, 255, 255, 0.6) inset, 18px 30px 60px rgba(0, 0, 0, 0.55), 4px 6px 0 #c9c3b5, 6px 9px 0 #a9a394;
+.book-flip.is-flipped { --flip: 180deg; }
+.book-flip__face {
+  width: 100%; height: auto; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  box-shadow: 18px 30px 60px rgba(0, 0, 0, 0.55);
 }
+.book-flip__face--front { border-radius: 4px 10px 10px 4px; box-shadow: -2px 0 0 rgba(255, 255, 255, 0.6) inset, 18px 30px 60px rgba(0, 0, 0, 0.55), 4px 6px 0 #c9c3b5, 6px 9px 0 #a9a394; }
+.book-flip__face--back { position: absolute; inset: 0; transform: rotateY(180deg); border-radius: 10px 4px 4px 10px; }
+.book-flip__btn {
+  display: flex; align-items: center; gap: 0.45rem; margin: var(--space-3) auto 0;
+  font-family: var(--font-mono); font-size: 0.76rem; color: var(--offwhite-dim);
+  background: transparent; border: 1px solid var(--border-strong); border-radius: 999px; padding: 0.45rem 0.95rem; cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.book-flip__btn:hover { border-color: var(--amber); color: var(--amber); }
+.book-flip__btn span[aria-hidden] { font-size: 1rem; color: var(--amber); }
 .book-feature__status {
-  display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: var(--space-3);
+  display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: var(--space-2);
   font-family: var(--font-mono); font-size: 0.8rem; color: var(--offwhite-dim);
 }
 .book-feature__sub { font-family: var(--font-hand); font-size: 1.55rem; color: var(--offwhite-dim); line-height: 1.25; margin-bottom: var(--space-3); }
@@ -462,7 +474,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 860px) {
   .book-feature__grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .book-feature__cover { position: static; }
-  .book3d { max-width: 240px; }
+  .book-flip { max-width: 240px; }
   .checklist, .parts { grid-template-columns: 1fr; }
 }
 
@@ -971,7 +983,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .showcase__visual--bv { display: block; aspect-ratio: 4 / 3; min-height: 0; padding: 0; overflow: hidden; }
 .bv-web { position: absolute; left: 7%; top: 12%; width: 72%; border-radius: 10px; border: 1px solid var(--border-strong); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); }
 .bv-app { position: absolute; right: 7%; bottom: 8%; height: 76%; width: auto; max-width: none; border-radius: 14px; border: 2px solid rgba(238, 242, 248, 0.25); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); }
-.showcase__visual--book .book3d { max-width: 220px; }
 @media (max-width: 860px) {
   .showcase__grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .showcase--flip .showcase__visual { order: 0; }
