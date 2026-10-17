@@ -277,7 +277,7 @@ function header(depth) {
       <li><a href="${up}qis-skills/#pipeline">Pipeline</a></li>
       <li><a href="${up}qis-skills/#anatomy">How it's built</a></li>
       <li><a href="${up}qis-skills/#catalog">All skills</a></li>
-      <li><a href="${up}qis-skills/#access">Demo &amp; access</a></li>
+      <li><a href="${up}qis-skills/#access">For hiring teams</a></li>
       <li><a href="${up}" class="nav__cta">Anitesh Shaw →</a></li>
     </ul>
   </nav>
@@ -314,7 +314,7 @@ function skillPage(skill, ctx) {
   const next = publicSkills[idx + 1];
   const coreIdx = core.findIndex((s) => s.id === skill.id);
   const canonical = `${SITE}/qis-skills/${skill.id}/`;
-  const demoHref = `mailto:${EMAIL}?subject=${encodeURIComponent('QIS-Skills demo — ' + skill.name)}`;
+  const demoHref = `mailto:${EMAIL}?subject=${encodeURIComponent('QIS-Skills walkthrough for an interview — ' + skill.name)}`;
   const flowNodes = skill.flow.map((f) => ({ title: f.title, sub: f.sub }));
   const diagram = blueprint({
     nodes: flowNodes, startLabel: 'you ask', endLabel: 'you decide', note: skill.note,
@@ -355,7 +355,7 @@ ${header(2)}
         <p class="skill-hero__desc">${esc(skill.description)}</p>
         <p class="metric-chip">${icon('spark')}${esc(skill.highlight)}</p>
         <div class="hero__ctas">
-          <a class="btn btn--primary" href="${demoHref}">See it run live</a>
+          <a class="btn btn--primary" href="${demoHref}">Walkthrough for hiring teams</a>
           <a class="btn btn--secondary" href="../#catalog">All skills</a>
         </div>
       </div>
@@ -431,10 +431,10 @@ ${whereItSits}
       </nav>
       <div class="cta-band reveal">
         <div>
-          <h2>Want to watch ${esc(skill.name)} work on a real story?</h2>
-          <p>The source is private. I run live demos inside VS Code and can grant temporary repo access to interview panels.</p>
+          <h2>Want to see ${esc(skill.name)} work on a real story?</h2>
+          <p>The source is private. For hiring teams, I can show it running in VS Code and grant temporary repo access to interview panels.</p>
         </div>
-        <a class="btn btn--primary" href="${demoHref}">Request a demo</a>
+        <a class="btn btn--primary" href="${demoHref}">Ask for an interview walkthrough</a>
       </div>
     </div>
   </section>
@@ -471,7 +471,7 @@ const GENERIC_DEMOS = [
 function regionStats(p, core) {
   if (!p.public.length) {
     return `<ul class="kpis" aria-label="QIS-Skills at a glance">
-        <li class="kpi"><span class="kpi__value kpi__value--word">Private</span><span class="kpi__label">beta, shown live on request</span></li>
+        <li class="kpi"><span class="kpi__value kpi__value--word">Private</span><span class="kpi__label">source, shown to hiring teams</span></li>
         <li class="kpi"><span class="kpi__value">6</span><span class="kpi__label">stages from story to release</span></li>
         <li class="kpi"><span class="kpi__value">60–70%</span><span class="kpi__label">less QA analysis &amp; design effort*</span></li>
         <li class="kpi"><span class="kpi__value">${icon('spark')}</span><span class="kpi__label">Technology Innovation Award</span></li>
@@ -513,9 +513,9 @@ function regionCatalog(p) {
     return `<div class="private-panel reveal">
           <span class="icon-tile icon-tile--lg">${icon('lock')}</span>
           <div>
-            <h3>The catalog is private for now</h3>
-            <p>I'm keeping the individual skills out of public view while QIS-Skills is in private beta. If you want to see them, I'm happy to walk you through the whole library live and show a few running on a sample project.</p>
-            <a class="btn btn--primary" href="mailto:${EMAIL}?subject=${encodeURIComponent('QIS-Skills walkthrough')}">Ask for a walkthrough</a>
+            <h3>The catalog is private</h3>
+            <p>The individual skills aren't public. If you're considering me for a QE leadership role, I can walk your interview panel through the library and show a few running on a sample project.</p>
+            <a class="btn btn--primary" href="mailto:${EMAIL}?subject=${encodeURIComponent('QIS-Skills walkthrough for an interview')}">Ask for an interview walkthrough</a>
           </div>
         </div>`;
   }
