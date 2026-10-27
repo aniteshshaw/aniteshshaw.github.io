@@ -604,6 +604,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .about__photo { width: 100%; max-width: 320px; aspect-ratio: 1; object-fit: cover; border-radius: 20px; border: 1px solid var(--border-strong); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
 .about__body p { color: var(--offwhite-dim); max-width: 66ch; }
 .about__body a { font-weight: 600; }
+.about__sign { margin-top: var(--space-3); }
+.about__sign img { display: block; width: 190px; height: auto; opacity: 0.92; }
+.about__sign span { display: block; margin-top: 0.15rem; font-size: 0.9rem; font-weight: 600; color: var(--offwhite-dim); }
 .about-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; margin-top: var(--space-3); }
 .about-highlight { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem; }
 .about-highlight__label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.25rem; }
